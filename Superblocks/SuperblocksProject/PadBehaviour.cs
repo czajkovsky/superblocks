@@ -25,12 +25,15 @@ namespace SuperblocksProject
     private PadState currentState, lastState;
     private enum PadState { Idle, Left, Right };
     
-    public PadBehaviour ()
+    private Pad pad;
+    
+    public PadBehaviour (Pad pad)
     {
       this.direction = NONE;
       this.trans2D = null;
       this.currentState = PadState.Idle;
       this.speed = INITIAL_SPEED;
+      this.pad = pad;
     }
     
     protected override void Update(TimeSpan gameTime)
@@ -60,8 +63,12 @@ namespace SuperblocksProject
       lastState = currentState;
       
       trans2D.X += direction * speed * (gameTime.Milliseconds / 10);
+      
+      if (trans2D.X < pad.Width / 2)
+        trans2D.X = pad.Width / 2;
+      else if (trans2D.X > WaveServices.Platform.ScreenWidth - pad.Width / 2)
+        trans2D.X = WaveServices.Platform.ScreenWidth - pad.Width / 2;
     }
-
   }
 }
 

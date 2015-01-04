@@ -30,10 +30,11 @@ namespace SuperblocksProject
         .AddComponent(new RectangleCollider())
         .AddComponent(new RigidBody2D() { PhysicBodyType = PhysicBodyType.Static })
         .AddComponent(new SpriteRenderer(DefaultLayers.Opaque))
-        .AddComponent(new PadBehaviour());
+        .AddComponent(new PadBehaviour(this));
     }
     
     public Entity Entity { get { return entity; } private set { entity = value; } }
+    public int Width { get { return width; } private set { width = value; } }
   }
 }
 
