@@ -1,24 +1,32 @@
 ﻿using System;
+using System.Collections;
 
 namespace SuperblocksProject
 {
   public class Level
   {
     int id;
+    ArrayList blocks = new ArrayList();
     
     public Level(int id)
     {
       this.id = id;
-      CreateBlocks();
+      createBlocks();
     }
     
-    private void CreateBlocks()
+    private void createBlocks()
     {
-      Console.WriteLine ("creating blocks...");
       int[] blocksArray = { 1, 1, 1, 0, 1, 1, 0, 1, 1, 1,
                             2, 2, 3, 3, 1, 1, 3, 3, 2, 2 };
       
+      int block_id = 0;
+      foreach (int i in blocksArray) {
+        blocks.Add (new Block (block_id, block_id % 10, block_id / 10));
+        block_id++;
+      }
     }
+    
+    public ArrayList Blocks { get { return blocks; } private set { blocks = value; } }
   }
 }
 

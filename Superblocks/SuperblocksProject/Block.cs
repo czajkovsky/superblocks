@@ -22,10 +22,11 @@ namespace SuperblocksProject
     
     public Block(int id, int offsetX, int offsetY)
     {
+      this.id = id;
       this.offsetX = GUTTER + offsetX * WIDTH + (int)((float)WIDTH / 2f);
       this.offsetY = 3 * GUTTER + offsetY * HEIGHT + (int)((float)HEIGHT / 2f);
       
-      this.entity = new Entity("block1")
+      this.entity = new Entity("block" + this.id)
         .AddComponent(new Transform2D() { X = this.offsetX, Y = this.offsetY, Origin = Vector2.Center })
         .AddComponent(new Sprite("textures/blockRed.wpk"))
         .AddComponent(new RectangleCollider())

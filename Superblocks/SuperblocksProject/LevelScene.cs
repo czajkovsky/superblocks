@@ -50,10 +50,11 @@ namespace SuperblocksProject
         .AddComponent(new RigidBody2D())
         .AddComponent(new SpriteRenderer(DefaultLayers.Alpha));
       
-      Block block = new Block(1, 0, 0); 
+      foreach (Block block in level.Blocks) {
+        EntityManager.Add(block.Entity);
+      }
 
       EntityManager.Add(circle);
-      EntityManager.Add(block.Entity);
       EntityManager.Add(borderTop);
     }
 
