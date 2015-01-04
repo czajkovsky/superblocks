@@ -9,6 +9,7 @@
     <RootNamespace>Superblocks</RootNamespace>
     <MonoMacResourcePrefix>Resources</MonoMacResourcePrefix>
     <AssemblyName>Superblocks</AssemblyName>
+    <SuppressXamMacUpsell>True</SuppressXamMacUpsell>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -119,7 +120,9 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Icon.icns" />
-    <BundleResource Include="Resources\groundSprite.wpk" />
+    <BundleResource Include="Resources\textures\groundSprite.wpk" />
+    <BundleResource Include="Resources\textures\circleSprite.wpk" />
+    <BundleResource Include="Resources\textures\blockRed.wpk" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

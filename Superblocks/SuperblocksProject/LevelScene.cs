@@ -28,23 +28,33 @@ namespace SuperblocksProject
     
     protected override void CreateScene()
     {
+      player.Describe();
+      
       var camera2D = new FixedCamera2D("Camera2D")
       {
         BackgroundColor = Color.CornflowerBlue
       };
       EntityManager.Add(camera2D);
 
-
-      Entity ground = new Entity("ground")
-        .AddComponent(new Transform2D() { X = 400, Y = 400, Origin = Vector2.Center })
-        .AddComponent(new Sprite("groundSprite.wpk"))
+      Entity borderTop = new Entity("borderTop")
+        .AddComponent(new Transform2D() { X = 0, Y = 720, Origin = Vector2.Center, XScale = 15f })
+        .AddComponent(new Sprite("textures/groundSprite.wpk"))
         .AddComponent(new RectangleCollider())
         .AddComponent(new RigidBody2D() { PhysicBodyType = PhysicBodyType.Static })
         .AddComponent(new SpriteRenderer(DefaultLayers.Opaque));
       
-      player.Describe();
+      Entity circle = new Entity("Circle")
+        .AddComponent(new Transform2D() { X = 950, Origin = Vector2.Center })
+        .AddComponent(new Sprite("textures/circleSprite.wpk"))
+        .AddComponent(new CircleCollider())
+        .AddComponent(new RigidBody2D())
+        .AddComponent(new SpriteRenderer(DefaultLayers.Alpha));
+      
+      Block block = new Block (); 
 
-      EntityManager.Add(ground);
+      EntityManager.Add(circle);
+      EntityManager.Add(block.Entity);
+      EntityManager.Add(borderTop);
     }
 
     protected override void Start ()
