@@ -7,7 +7,7 @@ using WaveEngine.Framework.Services;
 
 #endregion
 
-namespace Superblocks
+namespace SuperblocksProject
 {
   public class Game : WaveEngine.Framework.Game
   {
@@ -19,9 +19,10 @@ namespace Superblocks
       ViewportManager vm = WaveServices.ViewportManager;
       vm.Activate (1280, 720, ViewportManager.StretchMode.Uniform);
 
-      ScreenContext screenContext = new ScreenContext (new MyScene ()); 
+      ScreenContext screenContext = new ScreenContext (new MyScene ());	
       WaveServices.ScreenContextManager.To (screenContext);
     }
 
   }
 }
+
