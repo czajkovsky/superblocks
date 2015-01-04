@@ -83,6 +83,7 @@
     <Compile Include="Player.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="Block.cs" />
+    <Compile Include="Pad.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources.weproj" />

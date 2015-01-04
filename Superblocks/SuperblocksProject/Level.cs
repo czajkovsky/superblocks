@@ -5,12 +5,14 @@ namespace SuperblocksProject
 {
   public class Level
   {
-    int id;
-    ArrayList blocks = new ArrayList();
+    private int id;
+    private ArrayList blocks = new ArrayList();
+    private Pad pad;
     
     public Level(int id)
     {
       this.id = id;
+      this.pad = new Pad();
       createBlocks();
     }
     
@@ -27,6 +29,7 @@ namespace SuperblocksProject
     }
     
     public ArrayList Blocks { get { return blocks; } private set { blocks = value; } }
+    public Pad Pad { get { return pad; } private set { pad = value; } }
   }
 }
 

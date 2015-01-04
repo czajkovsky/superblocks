@@ -43,9 +43,13 @@ namespace SuperblocksProject
         .AddComponent(new RigidBody2D() { PhysicBodyType = PhysicBodyType.Static })
         .AddComponent(new SpriteRenderer(DefaultLayers.Opaque));
       
-      Entity circle = new Entity("Circle")
-        .AddComponent(new Transform2D() { X = 950, Origin = Vector2.Center })
-        .AddComponent(new Sprite("textures/circleSprite.wpk"))
+      Entity ball = new Entity("Ball")
+        .AddComponent(
+          new Transform2D() { X = WaveServices.Platform.ScreenWidth / 2,
+                              Y = 400,
+                              Origin = Vector2.Center }
+        )
+        .AddComponent(new Sprite("textures/ball.wpk"))
         .AddComponent(new CircleCollider())
         .AddComponent(new RigidBody2D())
         .AddComponent(new SpriteRenderer(DefaultLayers.Alpha));
@@ -54,7 +58,8 @@ namespace SuperblocksProject
         EntityManager.Add(block.Entity);
       }
 
-      EntityManager.Add(circle);
+      EntityManager.Add(ball);
+      EntityManager.Add(level.Pad.Entity);
       EntityManager.Add(borderTop);
     }
 
