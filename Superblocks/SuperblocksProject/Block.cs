@@ -15,7 +15,9 @@ namespace SuperblocksProject
   {
     private const int WIDTH = 114;
     private const int HEIGHT = 49;
-    private const int GUTTER = 6;
+    private const int GUTTER = 5;
+    private const int OFFSET_X = 20;
+    private const int OFFSET_Y = 28;
     
     private Entity entity;
     int id, offsetX, offsetY;
@@ -23,8 +25,8 @@ namespace SuperblocksProject
     public Block(int id, int offsetX, int offsetY)
     {
       this.id = id;
-      this.offsetX = GUTTER + offsetX * WIDTH + (int)((float)WIDTH / 2f);
-      this.offsetY = 3 * GUTTER + offsetY * HEIGHT + (int)((float)HEIGHT / 2f);
+      this.offsetX = OFFSET_X + GUTTER + offsetX * (WIDTH + 2 * GUTTER) + (int)((float)WIDTH / 2f);
+      this.offsetY = OFFSET_Y + GUTTER + offsetY * (HEIGHT + 2 * GUTTER) + (int)((float)HEIGHT / 2f);
       
       this.entity = new Entity("block" + this.id)
         .AddComponent(new Transform2D() { X = this.offsetX, Y = this.offsetY, Origin = Vector2.Center })
