@@ -18,11 +18,15 @@ namespace SuperblocksProject
     private const int GUTTER = 6;
     
     private Entity entity;
+    int id, offsetX, offsetY;
     
-    public Block ()
+    public Block(int id, int offsetX, int offsetY)
     {
+      this.offsetX = GUTTER + offsetX * WIDTH + (int)((float)WIDTH / 2f);
+      this.offsetY = 3 * GUTTER + offsetY * HEIGHT + (int)((float)HEIGHT / 2f);
+      
       this.entity = new Entity("block1")
-        .AddComponent(new Transform2D() { X = 100, Y = 100, Origin = Vector2.Center })
+        .AddComponent(new Transform2D() { X = this.offsetX, Y = this.offsetY, Origin = Vector2.Center })
         .AddComponent(new Sprite("textures/blockRed.wpk"))
         .AddComponent(new RectangleCollider())
         .AddComponent(new RigidBody2D() { PhysicBodyType = PhysicBodyType.Static })
