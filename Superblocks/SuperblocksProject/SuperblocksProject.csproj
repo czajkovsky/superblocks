@@ -84,6 +84,7 @@
     <Compile Include="Level.cs" />
     <Compile Include="Block.cs" />
     <Compile Include="Pad.cs" />
+    <Compile Include="PadBehaviour.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources.weproj" />

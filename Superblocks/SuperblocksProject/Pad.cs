@@ -29,7 +29,8 @@ namespace SuperblocksProject
         .AddComponent(new Sprite("textures/pad.wpk"))
         .AddComponent(new RectangleCollider())
         .AddComponent(new RigidBody2D() { PhysicBodyType = PhysicBodyType.Static })
-        .AddComponent(new SpriteRenderer(DefaultLayers.Opaque));
+        .AddComponent(new SpriteRenderer(DefaultLayers.Opaque))
+        .AddComponent(new PadBehaviour());
     }
     
     public Entity Entity { get { return entity; } private set { entity = value; } }
