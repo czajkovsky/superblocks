@@ -13,7 +13,7 @@ namespace Superblocks
   [Register ("AppDelegate")]
   public class App : WaveEngine.Adapter.Application
   {
-    Superblocks.Game game;
+    SuperblocksProject.Game game;
     SpriteBatch spriteBatch;
     Texture2D splashScreen;
     bool splashState = true;
@@ -30,7 +30,7 @@ namespace Superblocks
 
     public override void Initialize ()
     {
-      this.game = new Superblocks.Game ();
+      this.game = new SuperblocksProject.Game ();
       this.game.Initialize (this);
 
       #region WAVE SOFTWARE LICENSE AGREEMENT
