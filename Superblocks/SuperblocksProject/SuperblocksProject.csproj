@@ -81,6 +81,7 @@
     <Compile Include="Game.cs" />
     <Compile Include="LevelScene.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="Level.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources.weproj" />

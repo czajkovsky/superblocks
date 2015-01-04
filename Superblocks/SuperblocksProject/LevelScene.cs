@@ -18,10 +18,12 @@ namespace SuperblocksProject
   public class LevelScene : Scene
   {
     Player player;
+    Level level;
     
-    public LevelScene (Player player)
+    public LevelScene (Player player, Level level)
     {
       this.player = player;
+      this.level = level;
     }
     
     protected override void CreateScene()

@@ -11,6 +11,9 @@ namespace SuperblocksProject
 {
   public class Game : WaveEngine.Framework.Game
   {
+    Player player;
+    Level currentLevel;
+    
     public override void Initialize (IApplication application)
     {
       base.Initialize (application);
@@ -18,8 +21,10 @@ namespace SuperblocksProject
       ViewportManager vm = WaveServices.ViewportManager;
       vm.Activate (1280, 720, ViewportManager.StretchMode.Uniform);
 
-      Player player = new Player(5);
-      ScreenContext screenContext = new ScreenContext(new LevelScene(player));	
+      player = new Player();
+      currentLevel = new Level(0);
+      
+      ScreenContext screenContext = new ScreenContext(new LevelScene(player, currentLevel));	
       WaveServices.ScreenContextManager.To (screenContext);
     }
 
