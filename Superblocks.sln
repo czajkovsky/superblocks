@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Superblocks", "Superblocks.csproj", "{D7D0769B-02C5-4184-963C-6B689ABD3471}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Superblocks", "Superblocks\Superblocks\Superblocks.csproj", "{D7D0769B-02C5-4184-963C-6B689ABD3471}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperblocksProject", "SuperblocksProject\SuperblocksProject.csproj", "{76D73279-3F2F-46B4-867C-B0C38DC4812C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperblocksProject", "Superblocks\SuperblocksProject\SuperblocksProject.csproj", "{76D73279-3F2F-46B4-867C-B0C38DC4812C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

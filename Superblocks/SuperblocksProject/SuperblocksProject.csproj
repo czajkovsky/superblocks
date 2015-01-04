@@ -47,34 +47,34 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="MonoMac" />
     <Reference Include="WaveEngineMac.TiledMap">
-      <HintPath>..\..\..\..\..\..\Library\Frameworks\WaveEngine.framework\MacLibraries\WaveEngineMac.TiledMap.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Library\Frameworks\WaveEngine.framework\MacLibraries\WaveEngineMac.TiledMap.dll</HintPath>
     </Reference>
     <Reference Include="WaveEngineMac.Spine">
-      <HintPath>..\..\..\..\..\..\Library\Frameworks\WaveEngine.framework\MacLibraries\WaveEngineMac.Spine.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Library\Frameworks\WaveEngine.framework\MacLibraries\WaveEngineMac.Spine.dll</HintPath>
     </Reference>
     <Reference Include="WaveEngineMac.Physics">
-      <HintPath>..\..\..\..\..\..\Library\Frameworks\WaveEngine.framework\MacLibraries\WaveEngineMac.Physics.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Library\Frameworks\WaveEngine.framework\MacLibraries\WaveEngineMac.Physics.dll</HintPath>
     </Reference>
     <Reference Include="WaveEngineMac.Materials">
-      <HintPath>..\..\..\..\..\..\Library\Frameworks\WaveEngine.framework\MacLibraries\WaveEngineMac.Materials.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Library\Frameworks\WaveEngine.framework\MacLibraries\WaveEngineMac.Materials.dll</HintPath>
     </Reference>
     <Reference Include="WaveEngineMac.ImageEffects">
-      <HintPath>..\..\..\..\..\..\Library\Frameworks\WaveEngine.framework\MacLibraries\WaveEngineMac.ImageEffects.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Library\Frameworks\WaveEngine.framework\MacLibraries\WaveEngineMac.ImageEffects.dll</HintPath>
     </Reference>
     <Reference Include="WaveEngineMac.Framework">
-      <HintPath>..\..\..\..\..\..\Library\Frameworks\WaveEngine.framework\MacLibraries\WaveEngineMac.Framework.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Library\Frameworks\WaveEngine.framework\MacLibraries\WaveEngineMac.Framework.dll</HintPath>
     </Reference>
     <Reference Include="WaveEngineMac.Components">
-      <HintPath>..\..\..\..\..\..\Library\Frameworks\WaveEngine.framework\MacLibraries\WaveEngineMac.Components.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Library\Frameworks\WaveEngine.framework\MacLibraries\WaveEngineMac.Components.dll</HintPath>
     </Reference>
     <Reference Include="WaveEngineMac.Common">
-      <HintPath>..\..\..\..\..\..\Library\Frameworks\WaveEngine.framework\MacLibraries\WaveEngineMac.Common.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Library\Frameworks\WaveEngine.framework\MacLibraries\WaveEngineMac.Common.dll</HintPath>
     </Reference>
     <Reference Include="WaveEngineMac.Analytics">
-      <HintPath>..\..\..\..\..\..\Library\Frameworks\WaveEngine.framework\MacLibraries\WaveEngineMac.Analytics.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Library\Frameworks\WaveEngine.framework\MacLibraries\WaveEngineMac.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="WaveEngineMac.Adapter">
-      <HintPath>..\..\..\..\..\..\Library\Frameworks\WaveEngine.framework\MacLibraries\WaveEngineMac.Adapter.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Library\Frameworks\WaveEngine.framework\MacLibraries\WaveEngineMac.Adapter.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
