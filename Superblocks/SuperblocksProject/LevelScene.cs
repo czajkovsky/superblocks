@@ -15,9 +15,9 @@ using WaveEngine.Framework.Physics2D;
 
 namespace SuperblocksProject
 {
-  public class MyScene : Scene
+  public class LevelScene : Scene
   {
-    protected override void CreateScene ()
+    protected override void CreateScene()
     {
       var camera2D = new FixedCamera2D("Camera2D")
       {

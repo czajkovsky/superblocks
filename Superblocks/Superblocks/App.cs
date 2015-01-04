@@ -14,9 +14,6 @@ namespace Superblocks
   public class App : WaveEngine.Adapter.Application
   {
     SuperblocksProject.Game game;
-    SpriteBatch spriteBatch;
-    TimeSpan time;
-    Color backgroundSplashColor;
 
     public App ()
     {
