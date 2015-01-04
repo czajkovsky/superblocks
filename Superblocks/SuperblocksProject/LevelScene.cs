@@ -43,22 +43,11 @@ namespace SuperblocksProject
         .AddComponent(new RigidBody2D() { PhysicBodyType = PhysicBodyType.Static })
         .AddComponent(new SpriteRenderer(DefaultLayers.Opaque));
       
-      Entity ball = new Entity("Ball")
-        .AddComponent(
-          new Transform2D() { X = WaveServices.Platform.ScreenWidth / 2,
-                              Y = 400,
-                              Origin = Vector2.Center }
-        )
-        .AddComponent(new Sprite("textures/ball.wpk"))
-        .AddComponent(new CircleCollider())
-        .AddComponent(new RigidBody2D())
-        .AddComponent(new SpriteRenderer(DefaultLayers.Alpha));
-      
       foreach (Block block in level.Blocks) {
         EntityManager.Add(block.Entity);
       }
 
-      EntityManager.Add(ball);
+      EntityManager.Add(level.Ball.Entity);
       EntityManager.Add(level.Pad.Entity);
       EntityManager.Add(borderTop);
     }
