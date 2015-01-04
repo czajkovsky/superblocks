@@ -14,7 +14,7 @@ namespace SuperblocksProject
   public class Pad
   {
     private const int INITIAL_WIDTH = 256;
-    private int BOTTOM_OFFSET = WaveServices.Platform.ScreenHeight - 45;
+    private int BOTTOM_OFFSET = WaveServices.Platform.ScreenHeight - 55;
 
     private int width, offset;
     private Entity entity;
