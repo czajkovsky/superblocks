@@ -17,6 +17,13 @@ namespace SuperblocksProject
 {
   public class LevelScene : Scene
   {
+    Player player;
+    
+    public LevelScene (Player player)
+    {
+      this.player = player;
+    }
+    
     protected override void CreateScene()
     {
       var camera2D = new FixedCamera2D("Camera2D")
@@ -32,6 +39,8 @@ namespace SuperblocksProject
         .AddComponent(new RectangleCollider())
         .AddComponent(new RigidBody2D() { PhysicBodyType = PhysicBodyType.Static })
         .AddComponent(new SpriteRenderer(DefaultLayers.Opaque));
+      
+      player.Describe();
 
       EntityManager.Add(ground);
     }

@@ -15,11 +15,11 @@ namespace SuperblocksProject
     {
       base.Initialize (application);
 
-      // ViewportManager is used to automatically adapt resolution to fit screen size
       ViewportManager vm = WaveServices.ViewportManager;
       vm.Activate (1280, 720, ViewportManager.StretchMode.Uniform);
 
-      ScreenContext screenContext = new ScreenContext (new LevelScene());	
+      Player player = new Player(5);
+      ScreenContext screenContext = new ScreenContext(new LevelScene(player));	
       WaveServices.ScreenContextManager.To (screenContext);
     }
 

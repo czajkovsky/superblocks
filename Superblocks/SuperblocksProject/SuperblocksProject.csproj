@@ -80,6 +80,7 @@
   <ItemGroup>
     <Compile Include="Game.cs" />
     <Compile Include="LevelScene.cs" />
+    <Compile Include="Player.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources.weproj" />
