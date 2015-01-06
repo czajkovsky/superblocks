@@ -25,7 +25,7 @@ namespace SuperblocksProject
         )
         .AddComponent(new Sprite("textures/ball.wpk"))
         .AddComponent(new CircleCollider())
-        .AddComponent(new RigidBody2D())
+        .AddComponent(new RigidBody2D() { PhysicBodyType = PhysicBodyType.Dynamic, IgnoreGravity = true })
         .AddComponent(new SpriteRenderer(DefaultLayers.Alpha));
     }
 

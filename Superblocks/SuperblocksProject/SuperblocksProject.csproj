@@ -87,6 +87,7 @@
     <Compile Include="PadBehaviour.cs" />
     <Compile Include="Ball.cs" />
     <Compile Include="Border.cs" />
+    <Compile Include="BallBehaviour.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources.weproj" />
