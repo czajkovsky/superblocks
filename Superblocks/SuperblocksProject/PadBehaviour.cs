@@ -1,9 +1,11 @@
 ﻿#region Using Statements
 using System;
 using WaveEngine.Common.Input;
+using WaveEngine.Common.Math;
 using WaveEngine.Framework;
 using WaveEngine.Framework.Graphics;
 using WaveEngine.Framework.Services;
+using WaveEngine.Framework.Physics2D;
 #endregion
 
 namespace SuperblocksProject
@@ -17,57 +19,56 @@ namespace SuperblocksProject
     private const int NONE = 0;
     private const int LEFT = -1;
     private const int RIGHT = 1;
-    
-    [RequiredComponent]
-    public Transform2D trans2D;
-    
-    private int direction, speed;
+        
     private PadState currentState, lastState;
     private enum PadState { Idle, Left, Right };
     
     private Pad pad;
+    private Vector2 horizontalDirection;
+    private float multiplicator = 2f;
     
     public PadBehaviour (Pad pad)
     {
-      this.direction = NONE;
-      this.trans2D = null;
       this.currentState = PadState.Idle;
-      this.speed = INITIAL_SPEED;
       this.pad = pad;
+    }
+    
+    protected override void Initialize()
+    {
+      base.Initialize();
+      horizontalDirection = -Vector2.UnitX * multiplicator;
     }
     
     protected override void Update(TimeSpan gameTime)
     {
       currentState = PadState.Idle;
-
+      RigidBody2D body = Owner.FindComponent<RigidBody2D> ();
+      
       var keyboard = WaveServices.Input.KeyboardState;
       if (keyboard.Left == ButtonState.Pressed)
         currentState = PadState.Left;
       else if (keyboard.Right == ButtonState.Pressed)
         currentState = PadState.Right;
       
-      if (currentState != lastState)
-        switch (currentState)
-        {
-          case PadState.Idle:
-            direction = NONE;
-            break;
-          case PadState.Left:
-            direction = LEFT;
-            break;
-          case PadState.Right:
-            direction = RIGHT;
-            break;
+      Vector2 direction = Vector2.Zero;
+      if (currentState != lastState) {
+        Console.WriteLine("time to change");
+        switch (currentState) {
+        case PadState.Idle:
+          break;
+        case PadState.Left:
+          direction += horizontalDirection;
+          break;
+        case PadState.Right:
+          direction -= horizontalDirection;
+          break;
         }
+      }
       
-      lastState = currentState;
+      if (direction != Vector2.Zero)
+        body.ApplyLinearImpulse (direction);
       
-      trans2D.X += direction * speed * (gameTime.Milliseconds / 10);
-      
-      if (trans2D.X < pad.Width / 2)
-        trans2D.X = pad.Width / 2;
-      else if (trans2D.X > WaveServices.Platform.ScreenWidth - pad.Width / 2)
-        trans2D.X = WaveServices.Platform.ScreenWidth - pad.Width / 2;
+      lastState = currentState;      
     }
   }
 }

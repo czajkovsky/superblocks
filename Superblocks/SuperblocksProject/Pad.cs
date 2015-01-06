@@ -14,7 +14,7 @@ namespace SuperblocksProject
   public class Pad
   {
     private const int INITIAL_WIDTH = 256;
-    private int BOTTOM_OFFSET = WaveServices.Platform.ScreenHeight - 55;
+    private int BOTTOM_OFFSET = WaveServices.Platform.ScreenHeight - 75;
 
     private int width, offset;
     private Entity entity;
@@ -28,8 +28,8 @@ namespace SuperblocksProject
         .AddComponent(new Transform2D() { X = this.offset, Y = BOTTOM_OFFSET, Origin = Vector2.Center })
         .AddComponent(new Sprite("textures/pad.wpk"))
         .AddComponent(new RectangleCollider())
-        .AddComponent(new RigidBody2D() { PhysicBodyType = PhysicBodyType.Static })
         .AddComponent(new SpriteRenderer(DefaultLayers.Opaque))
+        .AddComponent(new RigidBody2D() { PhysicBodyType = PhysicBodyType.Dynamic })
         .AddComponent(new PadBehaviour(this));
     }
     
