@@ -35,16 +35,14 @@ namespace SuperblocksProject
         BackgroundColor = Color.CornflowerBlue
       };
       EntityManager.Add(camera2D);
-      
-      foreach (Block block in level.Blocks) {
-        EntityManager.Add(block.Entity);
-      }
-
       EntityManager.Add(level.Ball.Entity);
       EntityManager.Add(level.Pad.Entity);
-      EntityManager.Add(level.Border.BorderTopEntity);
-      EntityManager.Add(level.Border.BorderLeftEntity);
-      EntityManager.Add(level.Border.BorderRightEntity);
+      
+      foreach (Block block in level.Blocks)
+        EntityManager.Add(block.Entity);
+        
+      foreach (Border border in level.Borders)
+        EntityManager.Add(border.Entity);
     }
 
     protected override void Start ()

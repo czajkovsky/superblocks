@@ -1,5 +1,8 @@
-﻿using System;
+﻿#region Using Statements
+using System;
 using System.Collections;
+using WaveEngine.Framework.Services;
+#endregion
 
 namespace SuperblocksProject
 {
@@ -9,17 +12,25 @@ namespace SuperblocksProject
     private ArrayList blocks = new ArrayList();
     private Pad pad;
     private Ball ball;
-    private Border border;
+    private ArrayList borders = new ArrayList();
     
     public Level(int id)
     {
       this.id = id;
       this.pad = new Pad();
       this.ball = new Ball();
-      this.border = new Border();
+     
       createBlocks();
+      createBorders();
     }
     
+    private void createBorders()
+    {
+      borders.Add(new Border("Left", -31, 0, 90));
+      borders.Add(new Border("Right", WaveServices.Platform.ScreenWidth + 31, 0, 90));
+      borders.Add(new Border("Top", 0, -20, 0));
+    }
+      
     private void createBlocks()
     {
       int[] blocksArray = { 1, 1, 1, 0, 1, 1, 0, 1, 1, 1,
@@ -35,7 +46,7 @@ namespace SuperblocksProject
     public ArrayList Blocks { get { return blocks; } private set { blocks = value; } }
     public Pad Pad { get { return pad; } private set { pad = value; } }
     public Ball Ball { get { return ball; } private set { ball = value; } }
-    public Border Border { get { return border; } }
+    public ArrayList Borders { get { return borders; } }
   }
 }
 
