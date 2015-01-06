@@ -26,7 +26,8 @@ namespace SuperblocksProject
         .AddComponent(new Sprite("textures/ball.wpk"))
         .AddComponent(new CircleCollider())
         .AddComponent(new RigidBody2D() { PhysicBodyType = PhysicBodyType.Dynamic, IgnoreGravity = true })
-        .AddComponent(new SpriteRenderer(DefaultLayers.Alpha));
+        .AddComponent(new SpriteRenderer(DefaultLayers.Alpha))
+        .AddComponent(new BallBehaviour());
     }
 
     public Entity Entity { get { return entity; } private set { entity = value; } }
