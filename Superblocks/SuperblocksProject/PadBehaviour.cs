@@ -34,7 +34,7 @@ namespace SuperblocksProject
     protected override void Update(TimeSpan gameTime)
     {
       currentState = PadState.Idle;
-      RigidBody2D body = Owner.FindComponent<RigidBody2D> ();
+      RigidBody2D body = Owner.FindComponent<RigidBody2D>();
       
       var keyboard = WaveServices.Input.KeyboardState;
       if (keyboard.Left == ButtonState.Pressed)
@@ -44,32 +44,28 @@ namespace SuperblocksProject
       
       Vector2 direction = Vector2.Zero;
       
-      switch (currentState) {
-        case PadState.Idle:
-          speed = INITIAL_SPEED;
-          break;
-        case PadState.Left:
-          if (lastState == currentState)
-            incrementSpeed (0.0002f);
+      if (currentState == PadState.Idle)
+        speed = INITIAL_SPEED;
+      else
+      {
+        if (lastState == currentState)
+          incrementSpeed (0.0002f);
+        switch (currentState) {
+          case PadState.Left:
             direction -= Vector2.UnitX * speed;
-          break;
-        case PadState.Right:
-          if (lastState == currentState)
-            incrementSpeed (0.0002f);
-          direction += Vector2.UnitX * speed;
-          break;
-      }
-      
-      if (direction != Vector2.Zero)
+            break;
+          case PadState.Right:
+            direction += Vector2.UnitX * speed;
+            break;
+        }
         body.ApplyLinearImpulse (direction);
-      
+      }
       lastState = currentState;      
     }
     
     private void incrementSpeed(float diff)
     {
       speed += diff;
-      Console.WriteLine (speed);
     }
   }
 }
