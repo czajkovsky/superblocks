@@ -12,9 +12,9 @@ namespace SuperblocksProject
 {
   public class PadBehaviour : Behavior
   {
-    private const float MAX_SPEED = 8f;
+    private const float MAX_SPEED = 0.25f;
     private const float INITIAL_SPEED = 0.09f;
-    private const float MIN_SPEED = 1f;
+    private const float MIN_SPEED = 0.05f;
     
     private const int NONE = 0;
     private const int LEFT = -1;
@@ -66,7 +66,10 @@ namespace SuperblocksProject
     private void incrementSpeed(float diff)
     {
       speed += diff;
+      if (speed > MAX_SPEED)
+        speed = MAX_SPEED;
+      if (speed < MIN_SPEED)
+        speed = MIN_SPEED;
     }
   }
 }
-
