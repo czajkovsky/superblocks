@@ -12,9 +12,9 @@ namespace SuperblocksProject
 {
   public class PadBehaviour : Behavior
   {
-    private const int MAX_SPEED = 8;
-    private const int INITIAL_SPEED = 5;
-    private const int MIN_SPEED = 3;
+    private const float MAX_SPEED = 8f;
+    private const float INITIAL_SPEED = 0.09f;
+    private const float MIN_SPEED = 1f;
     
     private const int NONE = 0;
     private const int LEFT = -1;
@@ -22,23 +22,15 @@ namespace SuperblocksProject
         
     private PadState currentState, lastState;
     private enum PadState { Idle, Left, Right };
-    
-    private Pad pad;
-    private Vector2 horizontalDirection;
-    private float multiplicator = 2f;
+   
+    private float speed;
     
     public PadBehaviour (Pad pad)
     {
       this.currentState = PadState.Idle;
-      this.pad = pad;
+      this.speed = INITIAL_SPEED;
     }
-    
-    protected override void Initialize()
-    {
-      base.Initialize();
-      horizontalDirection = -Vector2.UnitX * multiplicator;
-    }
-    
+        
     protected override void Update(TimeSpan gameTime)
     {
       currentState = PadState.Idle;
@@ -51,24 +43,33 @@ namespace SuperblocksProject
         currentState = PadState.Right;
       
       Vector2 direction = Vector2.Zero;
-      if (currentState != lastState) {
-        Console.WriteLine("time to change");
-        switch (currentState) {
+      
+      switch (currentState) {
         case PadState.Idle:
+          speed = INITIAL_SPEED;
           break;
         case PadState.Left:
-          direction += horizontalDirection;
+          if (lastState == currentState)
+            incrementSpeed (0.0002f);
+            direction -= Vector2.UnitX * speed;
           break;
         case PadState.Right:
-          direction -= horizontalDirection;
+          if (lastState == currentState)
+            incrementSpeed (0.0002f);
+          direction += Vector2.UnitX * speed;
           break;
-        }
       }
       
       if (direction != Vector2.Zero)
         body.ApplyLinearImpulse (direction);
       
       lastState = currentState;      
+    }
+    
+    private void incrementSpeed(float diff)
+    {
+      speed += diff;
+      Console.WriteLine (speed);
     }
   }
 }
