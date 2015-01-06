@@ -9,12 +9,14 @@ namespace SuperblocksProject
     private ArrayList blocks = new ArrayList();
     private Pad pad;
     private Ball ball;
+    private Border border;
     
     public Level(int id)
     {
       this.id = id;
       this.pad = new Pad();
       this.ball = new Ball();
+      this.border = new Border();
       createBlocks();
     }
     
@@ -33,6 +35,7 @@ namespace SuperblocksProject
     public ArrayList Blocks { get { return blocks; } private set { blocks = value; } }
     public Pad Pad { get { return pad; } private set { pad = value; } }
     public Ball Ball { get { return ball; } private set { ball = value; } }
+    public Border Border { get { return border; } }
   }
 }
 

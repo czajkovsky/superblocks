@@ -35,13 +35,6 @@ namespace SuperblocksProject
         BackgroundColor = Color.CornflowerBlue
       };
       EntityManager.Add(camera2D);
-
-      Entity borderTop = new Entity("borderTop")
-        .AddComponent(new Transform2D() { X = 0, Y = 720, Origin = Vector2.Center, XScale = 15f })
-        .AddComponent(new Sprite("textures/groundSprite.wpk"))
-        .AddComponent(new RectangleCollider())
-        .AddComponent(new RigidBody2D() { PhysicBodyType = PhysicBodyType.Static })
-        .AddComponent(new SpriteRenderer(DefaultLayers.Opaque));
       
       foreach (Block block in level.Blocks) {
         EntityManager.Add(block.Entity);
@@ -49,7 +42,9 @@ namespace SuperblocksProject
 
       EntityManager.Add(level.Ball.Entity);
       EntityManager.Add(level.Pad.Entity);
-      EntityManager.Add(borderTop);
+      EntityManager.Add(level.Border.BorderTopEntity);
+      EntityManager.Add(level.Border.BorderLeftEntity);
+      EntityManager.Add(level.Border.BorderRightEntity);
     }
 
     protected override void Start ()
