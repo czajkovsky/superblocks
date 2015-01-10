@@ -50,7 +50,7 @@ namespace SuperblocksProject
     private Entity createBackground()
     {
       Entity background = new Entity("background")
-        .AddComponent(new Transform2D())
+        .AddComponent(new Transform2D() { Y = 10 })
         .AddComponent(new SpriteRenderer(DefaultLayers.Alpha))
         .AddComponent(new Sprite("textures/background.wpk"));
       return background;
