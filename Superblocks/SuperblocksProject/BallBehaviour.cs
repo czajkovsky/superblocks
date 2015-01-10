@@ -14,7 +14,7 @@ namespace SuperblocksProject
   {
     private BallState currentState;
     private enum BallState { Idle, Running };
-    private Vector2 initialVector, initialSpeed;
+    private Vector2 initialVector;
 
     public BallBehaviour ()
     {
@@ -24,19 +24,19 @@ namespace SuperblocksProject
     protected override void Initialize() {
       initialVector += Vector2.UnitX * 0.15f;
       initialVector += Vector2.UnitY * 0.1f;
-      Console.WriteLine (initialVector);
     }
          
     protected override void Update(TimeSpan gameTime)
     {
       RigidBody2D body = Owner.FindComponent<RigidBody2D>();
       
-      if ((body != null) && (currentState == BallState.Idle)) {
-        body.ApplyLinearImpulse (initialVector);
-        initialSpeed = body.LinearVelocity;
-        currentState = BallState.Running;
-      }      
-      Console.WriteLine (body.LinearVelocity);
+      if (body != null) {
+        if (currentState == BallState.Idle) {
+          body.ApplyLinearImpulse (initialVector);
+          currentState = BallState.Running;
+        } else if (currentState == BallState.Running) {
+        }
+      }
     }
   }
 }
