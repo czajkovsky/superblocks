@@ -29,12 +29,7 @@ namespace SuperblocksProject
     protected override void CreateScene()
     {
       player.Describe();
-      
-      var camera2D = new FixedCamera2D("Camera2D")
-      {
-        BackgroundColor = Color.CornflowerBlue
-      };
-      EntityManager.Add(camera2D);
+      EntityManager.Add(new FixedCamera2D ("Camera2D"));
       EntityManager.Add(level.Ball.Entity);
       EntityManager.Add(level.Pad.Entity);
       
