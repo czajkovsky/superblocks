@@ -29,7 +29,15 @@ namespace SuperblocksProject
         .AddComponent(new Sprite("textures/pad.wpk"))
         .AddComponent(new RectangleCollider())
         .AddComponent(new SpriteRenderer(DefaultLayers.Opaque))
-        .AddComponent(new RigidBody2D() { PhysicBodyType = PhysicBodyType.Dynamic, IgnoreGravity = true })
+        .AddComponent(new RigidBody2D() { 
+          PhysicBodyType = PhysicBodyType.Dynamic,
+          Mass = 400f,
+          Damping = 1,
+          Restitution = 0f,
+          Friction = 1.0f,
+          IgnoreGravity = true,
+          FixedRotation = true
+        })
         .AddComponent(new PadBehaviour(this));
     }
     

@@ -22,7 +22,8 @@ namespace SuperblocksProject
     }
     
     protected override void Initialize() {
-      initialVector += Vector2.UnitX * 1f;
+      initialVector += Vector2.UnitX * 0.15f;
+      initialVector += Vector2.UnitY * 0.1f;
       Console.WriteLine (initialVector);
     }
          
@@ -34,24 +35,8 @@ namespace SuperblocksProject
         body.ApplyLinearImpulse (initialVector);
         initialSpeed = body.LinearVelocity;
         currentState = BallState.Running;
-      }
-      if (currentState == BallState.Running) {
-        Vector2 change = Vector2.Zero;
-         change += Vector2.UnitX * changeSpeedOnAxis(body.LinearVelocity.X);
-         body.LinearVelocity = change;
-        
-      }
-      
+      }      
       Console.WriteLine (body.LinearVelocity);
-    }
-    
-    private float changeSpeedOnAxis(float current)
-    {
-      float speed = 3f;
-      if (current < 0)
-        speed *= -1f;
-      
-      return speed;
     }
   }
 }

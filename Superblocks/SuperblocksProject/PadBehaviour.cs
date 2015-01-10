@@ -12,9 +12,9 @@ namespace SuperblocksProject
 {
   public class PadBehaviour : Behavior
   {
-    private const float MAX_SPEED = 0.25f;
-    private const float INITIAL_SPEED = 0.09f;
-    private const float MIN_SPEED = 0.05f;
+    private const float MAX_SPEED = 25f;
+    private const float INITIAL_SPEED = 9f;
+    private const float MIN_SPEED = 5f;
     
     private const int NONE = 0;
     private const int LEFT = -1;
@@ -49,7 +49,7 @@ namespace SuperblocksProject
       else
       {
         if (lastState == currentState)
-          incrementSpeed (0.0002f);
+          incrementSpeed (0.02f);
         switch (currentState) {
           case PadState.Left:
             direction -= Vector2.UnitX * speed;
