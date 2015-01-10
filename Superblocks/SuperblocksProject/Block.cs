@@ -13,25 +13,23 @@ namespace SuperblocksProject
 {
   public class Block
   {
-    private const int WIDTH = 116;
-    private const int HEIGHT = 51;
-    private const int GUTTER = 4;
-    private const int OFFSET_X = 20;
-    private const int OFFSET_Y = 28;
-    
     private Entity entity;
-    int id, offsetX, offsetY, lives, type;
+    int id, lives, type;
     
-    public Block(int id, int offsetX, int offsetY)
+    public Block(int id, int offsetX, int offsetY, int type)
     {
       this.id = id;
       this.lives = 1;
-      this.type = 1;
-      this.offsetX = OFFSET_X + GUTTER + offsetX * (WIDTH + 2 * GUTTER) + (int)((float)WIDTH / 2f);
-      this.offsetY = OFFSET_Y + GUTTER + offsetY * (HEIGHT + 2 * GUTTER) + (int)((float)HEIGHT / 2f);
+      this.type = type;
+      
+      Console.WriteLine (type);
       
       this.entity = new Entity("block" + this.id)
-        .AddComponent(new Transform2D() { X = this.offsetX, Y = this.offsetY, Origin = Vector2.Center })
+        .AddComponent(new Transform2D() {
+          X = blockXOffset(offsetX),
+          Y = blockYOffset(offsetY),
+          Origin = Vector2.Center
+        })
         .AddComponent(new Sprite ("textures/block_t" + type + "_l" + lives + ".wpk"))
         .AddComponent(new RectangleCollider())
         .AddComponent(new RigidBody2D() { PhysicBodyType = PhysicBodyType.Static })
@@ -43,11 +41,14 @@ namespace SuperblocksProject
     {
       lives--;
       if (lives > 0) {
-        changeTexture ();
+        changeTexture();
         return false;
       }
       return true;
     }
+
+    public string Name { get { return "block" + id; } }
+    public Entity Entity { get { return entity; } private set { entity = value; } }
     
     private void changeTexture() 
     {
@@ -57,8 +58,19 @@ namespace SuperblocksProject
         .RefreshDependencies();
     }
     
-    public string Name { get { return "block" + id; } }
-    public Entity Entity { get { return entity; } private set { entity = value; } }
+    private float blockXOffset(int offsetX) {
+      const int OFFSET_X = 20;
+      const int GUTTER_X = 4;
+      const int WIDTH = 116;
+      return OFFSET_X + GUTTER_X + offsetX * (WIDTH + 2 * GUTTER_X) + (int)((float)WIDTH / 2f);
+    }
+        
+    private float blockYOffset(int offsetY) {
+      const int HEIGHT = 51;
+      const int OFFSET_Y = 28;
+      const int GUTTER_Y = 4;
+      return OFFSET_Y + GUTTER_Y + offsetY * (HEIGHT + 2 * GUTTER_Y) + (int)((float)HEIGHT / 2f);
+    }   
   }
 }
 

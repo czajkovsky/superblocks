@@ -123,6 +123,7 @@
     <BundleResource Include="Resources\textures\groundSprite.wpk" />
     <BundleResource Include="Resources\textures\circleSprite.wpk" />
     <BundleResource Include="Resources\textures\block_t1_l1.wpk" />
+    <BundleResource Include="Resources\textures\block_t2_l1.wpk" />
     <BundleResource Include="Resources\textures\ball.wpk" />
     <BundleResource Include="Resources\textures\pad.wpk" />
     <BundleResource Include="Resources\textures\background.wpk" />

@@ -35,12 +35,15 @@ namespace SuperblocksProject
     private void createBlocks()
     {
       int[] blocksArray = { 1, 1, 1, 0, 1, 1, 0, 1, 1, 1,
-                            2, 2, 3, 3, 1, 1, 3, 3, 2, 2 };
+                            2, 2, 0, 1, 1, 1, 1, 0, 2, 2 };
       
-      int block_id = 0;
+      int blockId = 0, blockCount = 0;
       foreach (int i in blocksArray) {
-        blocks.Add (new Block (block_id, block_id % 10, block_id / 10));
-        block_id++;
+        if (i > 0) {
+          blocks.Add (new Block (blockId, blockCount % 10, blockCount / 10, i));
+          blockId++;
+        }
+        blockCount++;
       }
     }
     
