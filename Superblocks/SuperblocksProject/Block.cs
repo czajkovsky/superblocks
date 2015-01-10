@@ -32,10 +32,13 @@ namespace SuperblocksProject
         .AddComponent(new Transform2D() { X = this.offsetX, Y = this.offsetY, Origin = Vector2.Center })
         .AddComponent(new Sprite("textures/blockRed.wpk"))
         .AddComponent(new RectangleCollider())
-        .AddComponent(new RigidBody2D() { PhysicBodyType = PhysicBodyType.Static })
-        .AddComponent(new SpriteRenderer(DefaultLayers.Opaque));
+        .AddComponent(new RigidBody2D () { PhysicBodyType = PhysicBodyType.Static })
+        .AddComponent(new SpriteRenderer(DefaultLayers.Opaque))
+        .AddComponent(new BlockBehaviour(this));
+    }
     }
     
+    public string Name { get { return "block" + id; } }
     public Entity Entity { get { return entity; } private set { entity = value; } }
   }
 }
