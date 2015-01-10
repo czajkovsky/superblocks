@@ -21,10 +21,12 @@ namespace SuperblocksProject
     
     private Entity entity;
     int id, offsetX, offsetY;
+    int id, offsetX, offsetY, lives;
     
     public Block(int id, int offsetX, int offsetY)
     {
       this.id = id;
+      this.lives = 1;
       this.offsetX = OFFSET_X + GUTTER + offsetX * (WIDTH + 2 * GUTTER) + (int)((float)WIDTH / 2f);
       this.offsetY = OFFSET_Y + GUTTER + offsetY * (HEIGHT + 2 * GUTTER) + (int)((float)HEIGHT / 2f);
       
@@ -36,6 +38,22 @@ namespace SuperblocksProject
         .AddComponent(new SpriteRenderer(DefaultLayers.Opaque))
         .AddComponent(new BlockBehaviour(this));
     }
+        
+    public bool Hit() 
+    {
+      this.lives--;
+      if (lives > 0)
+        changeTexture ();
+        return false;
+      return true;
+    }
+    
+    private void changeTexture() 
+    {
+      this.entity
+        .RemoveComponent<Sprite>()
+        .AddComponent(new Sprite ("textures/groundSprite.wpk"))
+        .RefreshDependencies();
     }
     
     public string Name { get { return "block" + id; } }
