@@ -12,9 +12,9 @@ namespace SuperblocksProject
 {
   public class PadBehaviour : Behavior
   {
-    private const float MAX_SPEED = 25f;
-    private const float INITIAL_SPEED = 9f;
-    private const float MIN_SPEED = 5f;
+    private const float MAX_IMPULSE = 25f;
+    private const float INITIAL_IMPULSE = 9f;
+    private const float MIN_IMPULSE = 5f;
     
     private const int NONE = 0;
     private const int LEFT = -1;
@@ -23,12 +23,12 @@ namespace SuperblocksProject
     private PadState currentState, lastState;
     private enum PadState { Idle, Left, Right };
    
-    private float speed;
+    private float impulse;
     
     public PadBehaviour (Pad pad)
     {
       this.currentState = PadState.Idle;
-      this.speed = INITIAL_SPEED;
+      this.impulse = INITIAL_IMPULSE;
     }
         
     protected override void Update(TimeSpan gameTime)
@@ -45,17 +45,16 @@ namespace SuperblocksProject
       Vector2 direction = Vector2.Zero;
       
       if (currentState == PadState.Idle)
-        speed = INITIAL_SPEED;
-      else
-      {
+        impulse = INITIAL_IMPULSE;
+      else {
         if (lastState == currentState)
-          incrementSpeed (0.02f);
+          incrementImpuls (0.02f);
         switch (currentState) {
           case PadState.Left:
-            direction -= Vector2.UnitX * speed;
+            direction -= Vector2.UnitX * impulse;
             break;
           case PadState.Right:
-            direction += Vector2.UnitX * speed;
+            direction += Vector2.UnitX * impulse;
             break;
         }
         body.ApplyLinearImpulse (direction);
@@ -63,13 +62,13 @@ namespace SuperblocksProject
       lastState = currentState;      
     }
     
-    private void incrementSpeed(float diff)
+    private void incrementImpuls(float diff)
     {
-      speed += diff;
-      if (speed > MAX_SPEED)
-        speed = MAX_SPEED;
-      if (speed < MIN_SPEED)
-        speed = MIN_SPEED;
+      impulse += diff;
+      if (impulse > MAX_IMPULSE)
+        impulse = MAX_IMPULSE;
+      if (impulse < MIN_IMPULSE)
+        impulse = MIN_IMPULSE;
     }
   }
 }
