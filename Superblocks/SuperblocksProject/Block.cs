@@ -52,7 +52,7 @@ namespace SuperblocksProject
         changeTexture();
         return false;
       }
-      return false;
+      return true;
     }
 
     public string Name { get { return "block" + id; } }
