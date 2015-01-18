@@ -34,8 +34,8 @@ namespace SuperblocksProject
       
     private void createBlocks()
     {
-      int[] blocksArray = { 1, 1, 1, 0, 1, 1, 0, 1, 1, 1,
-                            2, 2, 0, 1, 1, 1, 1, 0, 2, 2 };
+      int[] blocksArray = { 1, 1, 1, 0, 2, 2, 0, 1, 1, 1,
+                            2, 2, 2, 2, 2, 2, 2, 2, 2, 2 };
       
       int blockId = 0, blockCount = 0;
       foreach (int i in blocksArray) {
