@@ -19,7 +19,7 @@ namespace SuperblocksProject
       this.entity = new Entity("border" + name)
         .AddComponent(new Transform2D() { X = x, Y = y, Origin = Vector2.Center, XScale = 15f,
                                           Rotation = MathHelper.ToRadians(rotation) })
-        .AddComponent(new Sprite("textures/groundSprite.wpk"))
+        .AddComponent(new Sprite("textures/ground.wpk"))
         .AddComponent(new RectangleCollider())
         .AddComponent(new RigidBody2D() { PhysicBodyType = PhysicBodyType.Static })
         .AddComponent(new SpriteRenderer(DefaultLayers.Opaque));
