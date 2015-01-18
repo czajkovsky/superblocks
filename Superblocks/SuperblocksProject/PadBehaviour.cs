@@ -12,9 +12,9 @@ namespace SuperblocksProject
 {
   public class PadBehaviour : Behavior
   {
-    private const float MAX_IMPULSE = 25f;
-    private const float INITIAL_IMPULSE = 9f;
-    private const float MIN_IMPULSE = 5f;
+    private const float MAX_SPEED = 25f;
+    private const float INITIAL_SPEED = 9f;
+    private const float MIN_SPEED = 5f;
     
     private const int NONE = 0;
     private const int LEFT = -1;
@@ -28,7 +28,7 @@ namespace SuperblocksProject
     public PadBehaviour (Pad pad)
     {
       this.currentState = PadState.Idle;
-      this.impulse = INITIAL_IMPULSE;
+      this.impulse = INITIAL_SPEED;
     }
         
     protected override void Update(TimeSpan gameTime)
@@ -44,7 +44,7 @@ namespace SuperblocksProject
         currentState = PadState.Right;
       
       if (currentState == PadState.Idle) {
-        impulse = INITIAL_IMPULSE;
+        impulse = INITIAL_SPEED;
         body.LinearVelocity = direction;
       }
       else {
@@ -66,10 +66,10 @@ namespace SuperblocksProject
     private void incrementImpuls(float diff)
     {
       impulse += diff;
-      if (impulse > MAX_IMPULSE)
-        impulse = MAX_IMPULSE;
-      if (impulse < MIN_IMPULSE)
-        impulse = MIN_IMPULSE;
+      if (impulse > MAX_SPEED)
+        impulse = MAX_SPEED;
+      if (impulse < MIN_SPEED)
+        impulse = MIN_SPEED;
     }
   }
 }
