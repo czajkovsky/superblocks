@@ -1,5 +1,6 @@
 ﻿#region Using Statements
 using System;
+using System.Collections.Generic;
 using WaveEngine.Common.Math;
 using WaveEngine.Components.Graphics2D;
 using WaveEngine.Framework;
@@ -14,27 +15,34 @@ namespace SuperblocksProject
   public class Block
   {
     private Entity entity;
-    int id, lives, type;
-    
+    private int id, lives, type;
+    private int[] blockInitialLives = { 0, 1, 2 };
+    private Dictionary<string, Sprite> sprites = new Dictionary<string, Sprite>();
+     
     public Block(int id, int offsetX, int offsetY, int type)
     {
       this.id = id;
-      this.lives = 1;
+      this.lives = blockInitialLives[type];
       this.type = type;
-      
-      Console.WriteLine (type);
-      
+      createSprites();
+            
       this.entity = new Entity("block" + this.id)
         .AddComponent(new Transform2D() {
           X = blockXOffset(offsetX),
           Y = blockYOffset(offsetY),
           Origin = Vector2.Center
         })
-        .AddComponent(new Sprite ("textures/block_t" + type + "_l" + lives + ".wpk"))
+        .AddComponent(sprites[("block_t" + this.type + "_l" + this.lives)])
         .AddComponent(new RectangleCollider())
         .AddComponent(new RigidBody2D() { PhysicBodyType = PhysicBodyType.Static })
         .AddComponent(new SpriteRenderer(DefaultLayers.Alpha))
         .AddComponent(new BlockBehaviour(this));
+    }
+      
+    private void createSprites() {
+      sprites.Add("block_t1_l1", new Sprite ("textures/block_t1_l1.wpk"));
+      sprites.Add("block_t2_l2", new Sprite ("textures/block_t2_l2.wpk"));
+      sprites.Add("block_t2_l1", new Sprite ("textures/block_t2_l1.wpk"));
     }
         
     public bool Hit() 
@@ -44,7 +52,7 @@ namespace SuperblocksProject
         changeTexture();
         return false;
       }
-      return true;
+      return false;
     }
 
     public string Name { get { return "block" + id; } }
@@ -54,7 +62,7 @@ namespace SuperblocksProject
     {
       this.entity
         .RemoveComponent<Sprite>()
-        .AddComponent(new Sprite ("textures/block_t" + type + "_l" + lives + ".wpk"))
+        .AddComponent(sprites[("block_t" + type + "_l" + lives)])
         .RefreshDependencies();
     }
     

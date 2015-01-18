@@ -38,8 +38,8 @@ namespace SuperblocksProject
       foreach (Border border in level.Borders)
         EntityManager.Add(border.Entity);
 
-      Entity background = createBackground();
-      EntityManager.Add(background);
+       Entity background = createBackground();
+       EntityManager.Add(background);
     }
 
     protected override void Start ()
@@ -50,7 +50,7 @@ namespace SuperblocksProject
     private Entity createBackground()
     {
       Entity background = new Entity("background")
-        .AddComponent(new Transform2D() { Y = 10 })
+        .AddComponent(new Transform2D() { Y = 10, DrawOrder = 1f })
         .AddComponent(new SpriteRenderer(DefaultLayers.Alpha))
         .AddComponent(new Sprite("textures/background.wpk"));
       return background;

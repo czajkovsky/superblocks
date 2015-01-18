@@ -26,7 +26,6 @@ namespace SuperblocksProject
       ScreenContext screenContext = new ScreenContext(new LevelScene(player, currentLevel));	
       WaveServices.ScreenContextManager.To (screenContext);
     }
-
   }
 }
 
