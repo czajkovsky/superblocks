@@ -19,26 +19,26 @@ namespace SuperblocksProject
   {
     Player player;
     Level level;
-    
+
     public LevelScene (Player player, Level level)
     {
       this.player = player;
       this.level = level;
     }
-    
+
     protected override void CreateScene()
     {
-      Entity background = createBackground();
       EntityManager.Add(new FixedCamera2D ("Camera2D"));
       EntityManager.Add(level.Ball.Entity);
       EntityManager.Add(level.Pad.Entity);
-      
+
       foreach (Block block in level.Blocks)
         EntityManager.Add(block.Entity);
-        
+
       foreach (Border border in level.Borders)
         EntityManager.Add(border.Entity);
-      
+
+      Entity background = createBackground();
       EntityManager.Add(background);
     }
 
@@ -46,7 +46,7 @@ namespace SuperblocksProject
     {
       base.Start ();
     }
-    
+
     private Entity createBackground()
     {
       Entity background = new Entity("background")
