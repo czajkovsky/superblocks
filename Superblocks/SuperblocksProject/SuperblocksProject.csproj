@@ -92,6 +92,7 @@
     <Compile Include="BallBehaviour.cs" />
     <Compile Include="BlockBehaviour.cs" />
     <Compile Include="BlockBody.cs" />
+    <Compile Include="BorderBehaviour.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources.weproj" />
