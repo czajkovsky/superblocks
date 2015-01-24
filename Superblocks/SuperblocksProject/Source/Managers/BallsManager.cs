@@ -44,6 +44,11 @@ namespace SuperblocksProject
       if (count == 0)
         level.Restart();
     }
+    
+    public void removeAllBalls() {
+      foreach (KeyValuePair<string, Ball> ball in balls)
+        level.Game.CurrentScene.EntityManager.Remove (ball.Key);
+    }
   }
 }
 

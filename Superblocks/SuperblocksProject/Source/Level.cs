@@ -32,7 +32,14 @@ namespace SuperblocksProject
     public void Init()
     {
       ballsManager.AddBall();
+      ballsManager.AddBall();
+      ballsManager.AddBall();
+      ballsManager.AddBall();
       blocksManager.Init();
+    }
+    
+    public void Finish() {
+      ballsManager.removeAllBalls();
     }
 
     public int Id { get { return id; } }

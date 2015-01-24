@@ -39,8 +39,12 @@ namespace SuperblocksProject
     public void HitBlock(string blockName)
     {
       Block block = blocks[blockName];
-      if (block.Hit())
-        level.Game.CurrentScene.EntityManager.Remove(blockName);
+      if (block.Hit()) {
+        count--;
+        level.Game.CurrentScene.EntityManager.Remove (blockName);
+        if (count == 0)
+          level.Game.NextLevel();
+      }
     }
     
     private void parseFile()

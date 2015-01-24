@@ -10,9 +10,10 @@ namespace SuperblocksProject
 {
   public class Game : WaveEngine.Framework.Game
   {
-    Player player;
-    Level currentLevel;
-    LevelScene currentScene;
+    private Player player;
+    private Level currentLevel;
+    private LevelScene currentScene;
+    private int levelId;
     
     public override void Initialize (IApplication application)
     {
@@ -21,12 +22,20 @@ namespace SuperblocksProject
       ViewportManager vm = WaveServices.ViewportManager;
       vm.Activate (1280, 720, ViewportManager.StretchMode.Uniform);
 
+      levelId = 1;
       player = new Player();
-      currentLevel = new Level(1, this);
+      currentLevel = new Level(levelId, this);
       currentScene = new LevelScene(this);
       
       ScreenContext screenContext = new ScreenContext(currentScene);	
       WaveServices.ScreenContextManager.To (screenContext);
+    }
+    
+    public void NextLevel() {
+      levelId++;
+      currentLevel.Finish();
+      currentLevel = new Level(levelId, this);
+      currentLevel.Init();
     }
     
     public LevelScene CurrentScene { get { return currentScene; } }
