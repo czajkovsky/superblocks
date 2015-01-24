@@ -96,6 +96,7 @@
     <Compile Include="Source\Player.cs" />
     <Compile Include="Source\Behaviours\SideBorderBehaviour.cs" />
     <Compile Include="Source\Behaviours\BottomBorderBehaviour.cs" />
+    <Compile Include="Source\Managers\BallsManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources.weproj" />
@@ -108,5 +109,6 @@
     <Folder Include="Source\Builders\" />
     <Folder Include="Source\Behaviours\" />
     <Folder Include="Source\Helpers\" />
+    <Folder Include="Source\Managers\" />
   </ItemGroup>
 </Project>

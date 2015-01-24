@@ -34,7 +34,7 @@ namespace SuperblocksProject
       foreach (Block block in level.Blocks)
         EntityManager.Add(block.Entity);
       
-      foreach (Ball ball in level.Balls)
+      foreach (Ball ball in level.BallsManager.Balls)
         EntityManager.Add(ball.Entity);
 
       foreach (Border border in level.Borders)
