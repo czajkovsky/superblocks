@@ -22,7 +22,7 @@ namespace SuperblocksProject
       vm.Activate (1280, 720, ViewportManager.StretchMode.Uniform);
 
       player = new Player();
-      currentLevel = new Level(0, this);
+      currentLevel = new Level(1, this);
       currentScene = new LevelScene(player, currentLevel);
       
       ScreenContext screenContext = new ScreenContext(currentScene);	

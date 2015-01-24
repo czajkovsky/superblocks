@@ -1,5 +1,7 @@
 ﻿#region Using Statements
 using System;
+using System.IO;
+using System.Text;
 using System.Collections;
 using WaveEngine.Framework.Services;
 #endregion
@@ -47,13 +49,22 @@ namespace SuperblocksProject
       
     private void createBlocks()
     {
-      int[] blocksArray = { 1, 1, 1, 0, 2, 2, 0, 1, 1, 1,
-                            2, 2, 2, 2, 2, 2, 2, 2, 2, 2 };
+      String input = File.ReadAllText("levels/" + id + ".txt" );
+      int[] blocksArray = new int[100];
+      int i = 0;
+      foreach (var row in input.Split('\n')) {
+        if (row.Length > 0) {
+          foreach (var col in row.Trim().Split(' ')) {
+            blocksArray [i] = int.Parse (col);
+            i++;
+          }
+        }
+      }
       
       int blockId = 0, blockCount = 0;
-      foreach (int i in blocksArray) {
-        if (i > 0) {
-          blocks.Add (new Block (blockId, blockCount % 10, blockCount / 10, i));
+      foreach (int blockValue in blocksArray) {
+        if (blockValue > 0) {
+          blocks.Add (new Block (blockId, blockCount % 10, blockCount / 10, blockValue));
           blockId++;
         }
         blockCount++;
