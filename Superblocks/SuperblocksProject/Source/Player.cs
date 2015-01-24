@@ -14,7 +14,19 @@ namespace SuperblocksProject
     public void Describe()
     {
       Console.WriteLine ("score: " + this.score + ", lives: " + this.lives);
-    }  
+    }
+    
+    public void DecrementLives()
+    {
+      lives--;
+      if (lives == 0)
+        Console.WriteLine("GAME OVER");
+    }
+    
+    public void IncrementLives()
+    {
+      lives++;
+    }
   }
 }
 

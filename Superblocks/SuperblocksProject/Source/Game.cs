@@ -30,6 +30,7 @@ namespace SuperblocksProject
     }
     
     public LevelScene CurrentScene { get { return currentScene; } }
+    public Player Player { get { return player; } }
   }
 }
 

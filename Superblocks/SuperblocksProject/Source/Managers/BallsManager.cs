@@ -41,6 +41,8 @@ namespace SuperblocksProject
       count--;
       level.Game.CurrentScene.EntityManager.Remove(ballName);
       balls.Remove (ballName);
+      if (count == 0)
+        level.Restart();
     }
   }
 }

@@ -26,9 +26,15 @@ namespace SuperblocksProject
       createBorders();
     }
     
+    public void Restart()
+    {
+      game.Player.DecrementLives();
+      ballsManager.AddBall();
+    }
+    
     public void Init()
     {
-      this.ballsManager.AddBall ();
+      ballsManager.AddBall();
     }
 
     private void createBorders()
