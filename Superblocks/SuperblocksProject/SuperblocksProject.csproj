@@ -95,6 +95,7 @@
     <Compile Include="Source\LevelScene.cs" />
     <Compile Include="Source\Player.cs" />
     <Compile Include="Source\Behaviours\SideBorderBehaviour.cs" />
+    <Compile Include="Source\Behaviours\BottomBorderBehaviour.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources.weproj" />

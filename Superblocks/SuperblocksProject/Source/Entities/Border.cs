@@ -14,7 +14,7 @@ namespace SuperblocksProject
   {
     private Entity entity;
     
-    public Border(string name, float x, float y, float rotation, bool isSideBlock)
+    public Border(string name, float x, float y, float rotation, bool isSide, bool isBottom)
     {
       this.entity = new Entity ("border" + name)
         .AddComponent (new Transform2D () { X = x, Y = y, Origin = Vector2.Center, XScale = 15f,
@@ -25,8 +25,10 @@ namespace SuperblocksProject
         .AddComponent (new RigidBody2D () { PhysicBodyType = PhysicBodyType.Static })
         .AddComponent (new SpriteRenderer (DefaultLayers.Opaque));
        
-        if (isSideBlock)
+        if (isSide)
           this.entity.AddComponent(new SideBorderBehaviour(this));
+        else if (isBottom)
+          this.entity.AddComponent(new BottomBorderBehaviour(this));
     }
         
     public Entity Entity { get { return entity; } }
