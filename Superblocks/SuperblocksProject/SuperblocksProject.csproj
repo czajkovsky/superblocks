@@ -94,6 +94,7 @@
     <Compile Include="BlockBody.cs" />
     <Compile Include="BorderBehaviour.cs" />
     <Compile Include="MathHelpers.cs" />
+    <Compile Include="BallCollider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources.weproj" />
