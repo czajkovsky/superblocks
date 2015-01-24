@@ -57,6 +57,11 @@ namespace SuperblocksProject
         .AddComponent(new Sprite("textures/background.wpk"));
       return background;
     }
+    
+    public void reset()
+    {
+      Console.WriteLine ("level reset");
+    }
   }
 }
 

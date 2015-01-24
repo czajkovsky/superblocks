@@ -26,7 +26,7 @@ namespace SuperblocksProject
         .AddComponent (new SpriteRenderer (DefaultLayers.Opaque));
        
         if (isSideBlock)
-          this.entity.AddComponent(new BorderBehaviour(this));
+          this.entity.AddComponent(new SideBorderBehaviour(this));
     }
         
     public Entity Entity { get { return entity; } }

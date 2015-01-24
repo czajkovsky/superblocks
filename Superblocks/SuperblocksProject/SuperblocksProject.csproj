@@ -87,7 +87,6 @@
     <Compile Include="Source\Behaviours\BlockBehaviour.cs" />
     <Compile Include="Source\Builders\BlockBody.cs" />
     <Compile Include="Source\Entities\Border.cs" />
-    <Compile Include="Source\Behaviours\BorderBehaviour.cs" />
     <Compile Include="Source\Helpers\MathHelpers.cs" />
     <Compile Include="Source\Entities\Pad.cs" />
     <Compile Include="Source\Behaviours\PadBehaviour.cs" />
@@ -95,6 +94,7 @@
     <Compile Include="Source\Level.cs" />
     <Compile Include="Source\LevelScene.cs" />
     <Compile Include="Source\Player.cs" />
+    <Compile Include="Source\Behaviours\SideBorderBehaviour.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources.weproj" />

@@ -38,6 +38,7 @@ namespace SuperblocksProject
         .AddComponent(new BallBehaviour());
     }
 
+    public string Name { get { return "block" + id; } }
     public Entity Entity { get { return entity; } private set { entity = value; } }
   }
 }

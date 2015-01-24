@@ -19,6 +19,8 @@ namespace SuperblocksProject
       this.id = id;
       this.pad = new Pad();
       this.balls.Add(new Ball(1));
+      this.balls.Add(new Ball(2));
+      this.balls.Add(new Ball(3));
      
       createBlocks();
       createBorders();

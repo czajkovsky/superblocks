@@ -10,13 +10,13 @@ using WaveEngine.Framework.Physics2D;
 
 namespace SuperblocksProject
 {
-  public class BorderBehaviour : Behavior
+  public class SideBorderBehaviour : Behavior
   {
-    private enum BorderState { Pre, Iniatited, Destroyed };
+    private enum BorderState { Pre, Iniatited };
     private BorderState currentState;
     private Border border;
 
-    public BorderBehaviour (Border border)
+    public SideBorderBehaviour (Border border)
     {
       this.currentState = BorderState.Pre;
       this.border = border;
