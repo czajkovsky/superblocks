@@ -1,7 +1,7 @@
 ﻿#region Using Statements
 using System;
 using System.IO;
-using System.Collections;
+using System.Collections.Generic;
 using WaveEngine.Common;
 using WaveEngine.Common.Graphics;
 using WaveEngine.Common.Math;
@@ -21,7 +21,7 @@ namespace SuperblocksProject
   {
     Level level;
     private int count;
-    private ArrayList blocks = new ArrayList();
+    private Dictionary<string, Block> blocks = new Dictionary<string, Block>();
 
     public BlocksManager (Level level)
     {
@@ -32,8 +32,15 @@ namespace SuperblocksProject
     
     public void Init()
     {
-      foreach (Block block in blocks)
+      foreach (Block block in blocks.Values)
         level.Game.CurrentScene.EntityManager.Add(block.Entity);
+    }
+    
+    public void HitBlock(string blockName)
+    {
+      Block block = blocks[blockName];
+      if (block.Hit())
+        level.Game.CurrentScene.EntityManager.Remove(blockName);
     }
     
     private void parseFile()
@@ -46,14 +53,13 @@ namespace SuperblocksProject
             blockValue = int.Parse (col);
             if (blockValue > 0) {
               count++;
-              blocks.Add (new Block (count, i % 10, i / 10, blockValue));
+              Block block = new Block (count, i % 10, i / 10, blockValue);
+              blocks.Add (block.Name, block);
             }
             i++;
           }
         }
       }
     }
-    
-    public ArrayList Blocks { get { return blocks; } }
   }
 }

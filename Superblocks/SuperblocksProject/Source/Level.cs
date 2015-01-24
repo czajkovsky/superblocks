@@ -15,8 +15,6 @@ namespace SuperblocksProject
     private BlocksManager blocksManager;
     private Game game;
     
-    private ArrayList borders = new ArrayList();
-    
     public Level(int id, Game game)
     {
       this.id = id;

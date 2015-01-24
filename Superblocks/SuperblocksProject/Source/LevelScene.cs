@@ -55,7 +55,7 @@ namespace SuperblocksProject
       return background;
     }
     
-    public Game Game { get { return Game; } }
+    public Game Game { get { return game; } }
   }
 }
 
