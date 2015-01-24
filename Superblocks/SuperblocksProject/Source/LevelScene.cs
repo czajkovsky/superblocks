@@ -17,27 +17,28 @@ namespace SuperblocksProject
 {
   public class LevelScene : Scene
   {
-    Player player;
-    Level level;
+    private Game game;
+    private Pad pad;
 
-    public LevelScene (Player player, Level level)
+    public LevelScene (Game game)
     {
-      this.player = player;
-      this.level = level;
+      this.game = game;
+      this.pad = new Pad();
     }
 
     protected override void CreateScene()
     {
       EntityManager.Add(new FixedCamera2D ("Camera2D"));
-      EntityManager.Add(level.Pad.Entity);
+      EntityManager.Add(pad.Entity);
       
-      level.Init ();
+      EntityManager.Add(new Border("Left", -31, 0, 90, true, false).Entity);
+      EntityManager.Add(new Border("Right", WaveServices.Platform.ScreenWidth + 31, 0, 90, true, false).Entity);
+      EntityManager.Add(new Border("Top", 0, -20, 0, false, false).Entity);
+      EntityManager.Add(new Border("Bottom", 0, WaveServices.Platform.ScreenHeight + 40, 0, false, true).Entity);
       
-      foreach (Border border in level.Borders)
-        EntityManager.Add(border.Entity);
+      EntityManager.Add(createBackground());
 
-       Entity background = createBackground();
-       EntityManager.Add(background);
+      game.CurrentLevel.Init ();
     }
 
     protected override void Start ()
@@ -54,12 +55,7 @@ namespace SuperblocksProject
       return background;
     }
     
-    public void reset()
-    {
-      Console.WriteLine ("level reset");
-    }
-    
-    public Level Level { get { return level; } }
+    public Game Game { get { return Game; } }
   }
 }
 

@@ -23,13 +23,14 @@ namespace SuperblocksProject
 
       player = new Player();
       currentLevel = new Level(1, this);
-      currentScene = new LevelScene(player, currentLevel);
+      currentScene = new LevelScene(this);
       
       ScreenContext screenContext = new ScreenContext(currentScene);	
       WaveServices.ScreenContextManager.To (screenContext);
     }
     
     public LevelScene CurrentScene { get { return currentScene; } }
+    public Level CurrentLevel { get { return currentLevel; } }
     public Player Player { get { return player; } }
   }
 }
