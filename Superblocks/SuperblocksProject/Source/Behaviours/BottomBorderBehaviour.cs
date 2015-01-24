@@ -36,7 +36,7 @@ namespace SuperblocksProject
     {
       if (args.Body2DB.Owner.Name.StartsWith("Ball")) {
         LevelScene scene = (LevelScene)args.Body2DB.Owner.Scene;
-        scene.EntityManager.Remove(args.Body2DB.Owner.Name);
+        scene.Level.BallsManager.RemoveBall(args.Body2DB.Owner.Name);
       }
     }
   }

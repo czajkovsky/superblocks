@@ -61,6 +61,8 @@ namespace SuperblocksProject
     {
       Console.WriteLine ("level reset");
     }
+    
+    public Level Level { get { return level; } }
   }
 }
 
