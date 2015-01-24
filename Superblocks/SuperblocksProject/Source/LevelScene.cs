@@ -29,11 +29,13 @@ namespace SuperblocksProject
     protected override void CreateScene()
     {
       EntityManager.Add(new FixedCamera2D ("Camera2D"));
-      EntityManager.Add(level.Ball.Entity);
       EntityManager.Add(level.Pad.Entity);
 
       foreach (Block block in level.Blocks)
         EntityManager.Add(block.Entity);
+      
+      foreach (Ball ball in level.Balls)
+        EntityManager.Add(ball.Entity);
 
       foreach (Border border in level.Borders)
         EntityManager.Add(border.Entity);

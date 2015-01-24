@@ -14,10 +14,12 @@ namespace SuperblocksProject
   public class Ball
   {
     private Entity entity;
+    private int id;
     
-    public Ball()
+    public Ball(int id)
     {
-      this.entity = new Entity("Ball")
+      this.id = id;
+      this.entity = new Entity("Ball" + id)
         .AddComponent(
           new Transform2D() { X = WaveServices.Platform.ScreenWidth / 2,
             Y = 400,
