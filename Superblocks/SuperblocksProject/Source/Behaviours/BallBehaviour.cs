@@ -22,8 +22,12 @@ namespace SuperblocksProject
     }
     
     protected override void Initialize() {
-      initialVector += Vector2.UnitX * 0.15f;
-      initialVector += Vector2.UnitY * 0.1f;
+      System.Random random = new System.Random ();
+      float valX = 0.06f + (float)random.Next(0, 10) / 100f;
+      float dirX = (random.Next(0, 3) > 1) ? -1f : 1f;
+      float valY = 0.2f - valX;
+      initialVector += Vector2.UnitX * valX * dirX;
+      initialVector += Vector2.UnitY * valY * -1f;
     }
          
     protected override void Update(TimeSpan gameTime)
