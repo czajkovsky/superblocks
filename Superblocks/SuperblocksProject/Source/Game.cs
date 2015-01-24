@@ -12,6 +12,7 @@ namespace SuperblocksProject
   {
     Player player;
     Level currentLevel;
+    LevelScene currentScene;
     
     public override void Initialize (IApplication application)
     {
@@ -21,11 +22,14 @@ namespace SuperblocksProject
       vm.Activate (1280, 720, ViewportManager.StretchMode.Uniform);
 
       player = new Player();
-      currentLevel = new Level(0);
+      currentLevel = new Level(0, this);
+      currentScene = new LevelScene(player, currentLevel);
       
-      ScreenContext screenContext = new ScreenContext(new LevelScene(player, currentLevel));	
+      ScreenContext screenContext = new ScreenContext(currentScene);	
       WaveServices.ScreenContextManager.To (screenContext);
     }
+    
+    public LevelScene CurrentScene { get { return currentScene; } }
   }
 }
 

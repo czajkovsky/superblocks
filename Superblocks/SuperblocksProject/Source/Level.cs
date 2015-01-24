@@ -12,17 +12,23 @@ namespace SuperblocksProject
     private ArrayList blocks = new ArrayList();
     private Pad pad;
     private BallsManager ballsManager;
+    private Game game;
     
     private ArrayList borders = new ArrayList();
     
-    public Level(int id)
+    public Level(int id, Game game)
     {
       this.id = id;
+      this.game = game;
       this.pad = new Pad();
-      this.ballsManager = new BallsManager(this);   
-      this.ballsManager.AddBall ();
+      this.ballsManager = new BallsManager(this);
       createBlocks();
       createBorders();
+    }
+    
+    public void Init()
+    {
+      this.ballsManager.AddBall ();
     }
 
     private void createBorders()
@@ -52,6 +58,7 @@ namespace SuperblocksProject
     public Pad Pad { get { return pad; } private set { pad = value; } }
     public BallsManager BallsManager { get { return ballsManager; } }
     public ArrayList Borders { get { return borders; } }
+    public Game Game { get { return game; } }
   }
 }
 

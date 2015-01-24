@@ -30,13 +30,12 @@ namespace SuperblocksProject
     {
       EntityManager.Add(new FixedCamera2D ("Camera2D"));
       EntityManager.Add(level.Pad.Entity);
+      
+      level.Init ();
 
       foreach (Block block in level.Blocks)
         EntityManager.Add(block.Entity);
       
-      foreach (Ball ball in level.BallsManager.Balls)
-        EntityManager.Add(ball.Entity);
-
       foreach (Border border in level.Borders)
         EntityManager.Add(border.Entity);
 
