@@ -25,10 +25,8 @@ namespace SuperblocksProject
       if (Math.Abs (body.LinearVelocity.Y) > 0.3f) 
         return;
       Vector2 impulse = correlationYImpulse();
-      if (correlationImpulseInRange (impulse)) {
-        Console.WriteLine ("applying fix impulse");
+      if (correlationImpulseInRange (impulse))
         body.ApplyLinearImpulse (impulse);
-      }
     }
     
     private Vector2 correlationYImpulse()
