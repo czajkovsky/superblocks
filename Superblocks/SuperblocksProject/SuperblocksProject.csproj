@@ -80,24 +80,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Game.cs" />
-    <Compile Include="LevelScene.cs" />
-    <Compile Include="Player.cs" />
-    <Compile Include="Level.cs" />
-    <Compile Include="Block.cs" />
-    <Compile Include="Pad.cs" />
-    <Compile Include="PadBehaviour.cs" />
-    <Compile Include="Ball.cs" />
-    <Compile Include="Border.cs" />
-    <Compile Include="BallBehaviour.cs" />
-    <Compile Include="BlockBehaviour.cs" />
-    <Compile Include="BlockBody.cs" />
-    <Compile Include="BorderBehaviour.cs" />
-    <Compile Include="MathHelpers.cs" />
-    <Compile Include="BallCollider.cs" />
+    <Compile Include="Source\Entities\Ball.cs" />
+    <Compile Include="Source\Behaviours\BallBehaviour.cs" />
+    <Compile Include="Source\Colliders\BallCollider.cs" />
+    <Compile Include="Source\Entities\Block.cs" />
+    <Compile Include="Source\Behaviours\BlockBehaviour.cs" />
+    <Compile Include="Source\Builders\BlockBody.cs" />
+    <Compile Include="Source\Entities\Border.cs" />
+    <Compile Include="Source\Behaviours\BorderBehaviour.cs" />
+    <Compile Include="Source\Helpers\MathHelpers.cs" />
+    <Compile Include="Source\Entities\Pad.cs" />
+    <Compile Include="Source\Behaviours\PadBehaviour.cs" />
+    <Compile Include="Source\Game.cs" />
+    <Compile Include="Source\Level.cs" />
+    <Compile Include="Source\LevelScene.cs" />
+    <Compile Include="Source\Player.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources.weproj" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Source\" />
+    <Folder Include="Source\Colliders\" />
+    <Folder Include="Source\Entities\" />
+    <Folder Include="Source\Builders\" />
+    <Folder Include="Source\Behaviours\" />
+    <Folder Include="Source\Helpers\" />
+  </ItemGroup>
 </Project>
