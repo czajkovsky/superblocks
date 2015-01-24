@@ -31,7 +31,7 @@ namespace SuperblocksProject
       borders.Add(new Border("Left", -31, 0, 90, true, false));
       borders.Add(new Border("Right", WaveServices.Platform.ScreenWidth + 31, 0, 90, true, false));
       borders.Add(new Border("Top", 0, -20, 0, false, false));
-      borders.Add(new Border("Bottom", 0, WaveServices.Platform.ScreenHeight + 20, 0, false, true));
+      borders.Add(new Border("Bottom", 0, WaveServices.Platform.ScreenHeight + 40, 0, false, true));
     }
       
     private void createBlocks()
