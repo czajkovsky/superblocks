@@ -34,8 +34,10 @@ namespace SuperblocksProject
 
     private void onCollision(object sender, Physic2DCollisionEventArgs args)
     {
-      BallCollider collider = new BallCollider (args.Body2DB);
-      collider.AdjustY();
+      if (args.Body2DB.Owner.Name.StartsWith ("Ball")) {
+        BallCollider collider = new BallCollider (args.Body2DB);
+        collider.AdjustY ();
+      }
     }
   }
 }
