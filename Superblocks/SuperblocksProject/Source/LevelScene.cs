@@ -32,9 +32,6 @@ namespace SuperblocksProject
       EntityManager.Add(level.Pad.Entity);
       
       level.Init ();
-
-      foreach (Block block in level.Blocks)
-        EntityManager.Add(block.Entity);
       
       foreach (Border border in level.Borders)
         EntityManager.Add(border.Entity);

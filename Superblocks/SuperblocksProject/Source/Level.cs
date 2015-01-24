@@ -14,6 +14,7 @@ namespace SuperblocksProject
     private ArrayList blocks = new ArrayList();
     private Pad pad;
     private BallsManager ballsManager;
+    private BlocksManager blocksManager;
     private Game game;
     
     private ArrayList borders = new ArrayList();
@@ -24,7 +25,7 @@ namespace SuperblocksProject
       this.game = game;
       this.pad = new Pad();
       this.ballsManager = new BallsManager(this);
-      createBlocks();
+      this.blocksManager = new BlocksManager(this);
       createBorders();
     }
     
@@ -37,6 +38,7 @@ namespace SuperblocksProject
     public void Init()
     {
       ballsManager.AddBall();
+      blocksManager.Init();
     }
 
     private void createBorders()
@@ -47,33 +49,11 @@ namespace SuperblocksProject
       borders.Add(new Border("Bottom", 0, WaveServices.Platform.ScreenHeight + 40, 0, false, true));
     }
       
-    private void createBlocks()
-    {
-      String input = File.ReadAllText("levels/" + id + ".txt" );
-      int[] blocksArray = new int[100];
-      int i = 0;
-      foreach (var row in input.Split('\n')) {
-        if (row.Length > 0) {
-          foreach (var col in row.Trim().Split(' ')) {
-            blocksArray [i] = int.Parse (col);
-            i++;
-          }
-        }
-      }
-      
-      int blockId = 0, blockCount = 0;
-      foreach (int blockValue in blocksArray) {
-        if (blockValue > 0) {
-          blocks.Add (new Block (blockId, blockCount % 10, blockCount / 10, blockValue));
-          blockId++;
-        }
-        blockCount++;
-      }
-    }
     
-    public ArrayList Blocks { get { return blocks; } private set { blocks = value; } }
+    public int Id { get { return id; } }
     public Pad Pad { get { return pad; } private set { pad = value; } }
     public BallsManager BallsManager { get { return ballsManager; } }
+    public BlocksManager BlocksManager { get { return blocksManager; } }
     public ArrayList Borders { get { return borders; } }
     public Game Game { get { return game; } }
   }
