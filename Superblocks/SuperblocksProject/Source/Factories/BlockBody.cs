@@ -36,10 +36,11 @@ namespace SuperblocksProject
             .AddComponent (new BlockBehaviour(block));
     }
     
-    public void ChangeTexture() 
+    public void ChangeTexture(string texture) 
     {
       this.entity
         .RemoveComponent<Sprite>()
+        .AddComponent (new Sprite (texture))
         .RefreshDependencies();
     }
 

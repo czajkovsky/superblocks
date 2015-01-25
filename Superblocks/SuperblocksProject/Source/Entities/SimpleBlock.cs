@@ -1,13 +1,5 @@
 ﻿#region Using Statements
 using System;
-using System.Collections.Generic;
-using WaveEngine.Common.Math;
-using WaveEngine.Components.Graphics2D;
-using WaveEngine.Framework;
-using WaveEngine.Framework.Graphics;
-using WaveEngine.Framework.Resources;
-using WaveEngine.Framework.Services;
-using WaveEngine.Framework.Physics2D;
 #endregion
 
 namespace SuperblocksProject
