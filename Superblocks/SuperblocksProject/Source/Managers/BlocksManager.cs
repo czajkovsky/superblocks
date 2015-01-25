@@ -43,27 +43,35 @@ namespace SuperblocksProject
       if (count == 0)
         level.Game.NextLevel();
     }
-        
+    
+    private void addBlock(int blockType, int iterator)
+    {
+      count++;
+      switch (blockType) {
+        case 1:
+          SimpleBlock block = new SimpleBlock(count, iterator % 10, iterator / 10);
+          blocks.Add(block.Name, block);
+          break;
+      }
+    }
+     
     private void parseFile()
     {
-      int i = 0, blockValue;
+      int i = 0;
       String input = File.ReadAllText ("levels/" + level.Id + ".txt");
-      foreach (var row in input.Split('\n')) {
-        if (row.Length > 0) {
-          foreach (var col in row.Trim().Split(' ')) {
-            blockValue = int.Parse (col);
-            if (blockValue > 0) {
-              count++;
-              switch (blockValue) {
-              case 1:
-                SimpleBlock block = new SimpleBlock(count, i % 10, i / 10);
-                blocks.Add(block.Name, block);
-                break;
-              }
-            }
-            i++;
-          }
-        }
+      foreach (var row in input.Split('\n'))
+        if (row.Length > 0)
+          processRow(ref i, row);
+    }
+    
+    private void processRow(ref int iterator, string row)
+    {
+      int blockType;
+      foreach (var col in row.Trim().Split(' ')) {
+        blockType = int.Parse (col);
+        if (blockType > 0)
+          addBlock (blockType, iterator);
+        iterator++;
       }
     }
   }
