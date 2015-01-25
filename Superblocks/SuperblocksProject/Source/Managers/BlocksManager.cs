@@ -36,6 +36,22 @@ namespace SuperblocksProject
         level.Game.CurrentScene.EntityManager.Add(block.Entity);
     }
     
+    public int CheckLine(int line)
+    {
+      int count = 0;
+      foreach (Block block in blocks.Values)
+        if ((block.Line == line) && !block.Harmed)
+          count++;
+      return count;
+    }
+    
+    public void RemoveLine(int line)
+    {
+      foreach (Block block in blocks.Values)
+        if (block.Line == line)
+          RemoveBlock(block.Name);
+    }
+    
     public void RemoveBlock(string blockName)
     {
       count--;

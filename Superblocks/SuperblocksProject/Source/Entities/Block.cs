@@ -14,12 +14,14 @@ namespace SuperblocksProject
 {
   public abstract class Block
   {
-    protected int id, lives;
+    protected int id, lives, line;
     protected BlockBody body;
+    protected bool harmed = false;
     
     public Block(int id, int offsetX, int offsetY)
     {
       this.id = id;
+      this.line = offsetY;
       this.body = new BlockBody(offsetX, offsetY, this);
     }
     
@@ -27,6 +29,8 @@ namespace SuperblocksProject
       
     public string Name { get { return "block" + id; } }
     public int Lives { get { return lives; } }
+    public int Line { get { return line; } }
+    public bool Harmed { get { return harmed; } }
     public Entity Entity { get { return body.Entity; } }
   }
 }

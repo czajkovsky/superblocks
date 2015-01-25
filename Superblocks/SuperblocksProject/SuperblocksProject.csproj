@@ -101,6 +101,7 @@
     <Compile Include="Source\Factories\BlockBody.cs" />
     <Compile Include="Source\Factories\LevelParser.cs" />
     <Compile Include="Source\Entities\DoubleBlock.cs" />
+    <Compile Include="Source\Entities\LineBlock.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources.weproj" />
