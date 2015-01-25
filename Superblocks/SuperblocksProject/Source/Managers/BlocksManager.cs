@@ -36,17 +36,14 @@ namespace SuperblocksProject
         level.Game.CurrentScene.EntityManager.Add(block.Entity);
     }
     
-    public void HitBlock(string blockName)
+    public void RemoveBlock(string blockName)
     {
-      Block block = blocks[blockName];
-      if (block.Hit()) {
-        count--;
-        level.Game.CurrentScene.EntityManager.Remove (blockName);
-        if (count == 0)
-          level.Game.NextLevel();
-      }
+      count--;
+      level.Game.CurrentScene.EntityManager.Remove (blockName);
+      if (count == 0)
+        level.Game.NextLevel();
     }
-    
+        
     private void parseFile()
     {
       int i = 0, blockValue;
@@ -57,8 +54,12 @@ namespace SuperblocksProject
             blockValue = int.Parse (col);
             if (blockValue > 0) {
               count++;
-              Block block = new Block (count, i % 10, i / 10, blockValue);
-              blocks.Add (block.Name, block);
+              switch (blockValue) {
+              case 1:
+                SimpleBlock block = new SimpleBlock(count, i % 10, i / 10);
+                blocks.Add(block.Name, block);
+                break;
+              }
             }
             i++;
           }

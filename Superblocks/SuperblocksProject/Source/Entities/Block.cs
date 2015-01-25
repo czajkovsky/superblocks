@@ -12,32 +12,20 @@ using WaveEngine.Framework.Physics2D;
 
 namespace SuperblocksProject
 {
-  public class Block
+  public abstract class Block
   {
-    private int id, lives, type;
-    private int[] blockInitialLives = { 0, 1, 2 };
-    private BlockBody body;
+    protected int id, lives;
+    protected BlockBody body;
     
-    public Block(int id, int offsetX, int offsetY, int type)
+    public Block(int id, int offsetX, int offsetY)
     {
       this.id = id;
-      this.lives = blockInitialLives[type];
-      this.type = type;
       this.body = new BlockBody(offsetX, offsetY, this);
     }
+    
+    public abstract void Hit(BlocksManager manager);
       
-    public bool Hit() 
-    {
-      lives--;
-      if (lives > 0) {
-        body.ChangeTexture();
-        return false;
-      }
-      return true;
-    }
-
     public string Name { get { return "block" + id; } }
-    public int Type { get { return type; } }
     public int Lives { get { return lives; } }
     public Entity Entity { get { return body.Entity; } }
   }

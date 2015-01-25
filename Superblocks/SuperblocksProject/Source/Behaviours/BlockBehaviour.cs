@@ -35,7 +35,7 @@ namespace SuperblocksProject
     private void onCollision(object sender, Physic2DCollisionEventArgs args)
     {
       LevelScene scene = (LevelScene)args.Body2DA.Owner.Scene;
-      scene.Game.CurrentLevel.BlocksManager.HitBlock(block.Entity.Name);
+      block.Hit(scene.Game.CurrentLevel.BlocksManager);
     }
   }
 }

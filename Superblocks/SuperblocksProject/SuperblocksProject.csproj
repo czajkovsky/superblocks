@@ -98,6 +98,7 @@
     <Compile Include="Source\Behaviours\BottomBorderBehaviour.cs" />
     <Compile Include="Source\Managers\BallsManager.cs" />
     <Compile Include="Source\Managers\BlocksManager.cs" />
+    <Compile Include="Source\Entities\SimpleBlock.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources.weproj" />

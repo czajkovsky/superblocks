@@ -16,28 +16,30 @@ namespace SuperblocksProject
   {
     private Entity entity;
     private Block block;
+    private int offsetX, offsetY;
     
     public BlockBody (int offsetX, int offsetY, Block block)
     {
       this.block = block;
-      this.entity = new Entity(block.Name)
-        .AddComponent(new Transform2D() {
-          X = blockXOffset(offsetX),
-          Y = blockYOffset(offsetY),
-          Origin = Vector2.Center
-        })
-        .AddComponent(new Sprite ("textures/block_t" + block.Type + "_l" + block.Lives + ".wpk"))
-        .AddComponent(new RectangleCollider())
-        .AddComponent(new RigidBody2D() { PhysicBodyType = PhysicBodyType.Static })
-        .AddComponent(new SpriteRenderer(DefaultLayers.Alpha))
-        .AddComponent(new BlockBehaviour(block));
+      this.offsetX = offsetX;
+      this.offsetY = offsetY;
+      this.entity = new Entity(block.Name);
+    }
+    
+    public void Draw(string texture)
+    {
+      entity.AddComponent(new Transform2D() { X = blockXOffset (offsetX), Y = blockYOffset (offsetY), Origin = Vector2.Center })
+            .AddComponent (new RectangleCollider())
+            .AddComponent (new Sprite (texture))
+            .AddComponent (new RigidBody2D() { PhysicBodyType = PhysicBodyType.Static })
+            .AddComponent (new SpriteRenderer(DefaultLayers.Alpha))
+            .AddComponent (new BlockBehaviour(block));
     }
     
     public void ChangeTexture() 
     {
       this.entity
         .RemoveComponent<Sprite>()
-        .AddComponent(new Sprite ("textures/block_t" + block.Type + "_l" + block.Lives + ".wpk"))
         .RefreshDependencies();
     }
 
