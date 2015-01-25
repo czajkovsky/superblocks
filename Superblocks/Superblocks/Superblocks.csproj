@@ -127,6 +127,8 @@
     <BundleResource Include="Resources\textures\pad.wpk" />
     <BundleResource Include="Resources\textures\background.wpk" />
     <BundleResource Include="Resources\textures\ground.wpk" />
+    <BundleResource Include="Resources\textures\lineBlock0.wpk" />
+    <BundleResource Include="Resources\textures\lineBlock1.wpk" />
     <BundleResource Include="Resources\levels\1.txt" />
     <BundleResource Include="Resources\levels\2.txt" />
   </ItemGroup>

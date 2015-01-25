@@ -8,13 +8,13 @@ namespace SuperblocksProject
   {
     public LineBlock(int count, int offsetX, int offsetY) : base(count, offsetX, offsetY)
     {
-      body.Draw("textures/block_t2_l2.wpk");
+      body.Draw("textures/lineBlock1.wpk");
     }
 
     public override void Hit(BlocksManager manager) 
     {
       harmed = true;
-      body.ChangeTexture("textures/block_t2_l1.wpk");
+      body.ChangeTexture("textures/lineBlock0.wpk");
       if (manager.CheckLine(line) == 0)
         manager.RemoveLine(line);
     }
