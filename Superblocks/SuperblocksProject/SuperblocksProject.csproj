@@ -85,7 +85,6 @@
     <Compile Include="Source\Colliders\BallCollider.cs" />
     <Compile Include="Source\Entities\Block.cs" />
     <Compile Include="Source\Behaviours\BlockBehaviour.cs" />
-    <Compile Include="Source\Builders\BlockBody.cs" />
     <Compile Include="Source\Entities\Border.cs" />
     <Compile Include="Source\Helpers\MathHelpers.cs" />
     <Compile Include="Source\Entities\Pad.cs" />
@@ -99,6 +98,7 @@
     <Compile Include="Source\Managers\BallsManager.cs" />
     <Compile Include="Source\Managers\BlocksManager.cs" />
     <Compile Include="Source\Entities\SimpleBlock.cs" />
+    <Compile Include="Source\Factories\BlockBody.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources.weproj" />
@@ -108,9 +108,9 @@
     <Folder Include="Source\" />
     <Folder Include="Source\Colliders\" />
     <Folder Include="Source\Entities\" />
-    <Folder Include="Source\Builders\" />
     <Folder Include="Source\Behaviours\" />
     <Folder Include="Source\Helpers\" />
     <Folder Include="Source\Managers\" />
+    <Folder Include="Source\Factories\" />
   </ItemGroup>
 </Project>
