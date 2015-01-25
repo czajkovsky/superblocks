@@ -14,7 +14,7 @@ namespace SuperblocksProject
 {
   public abstract class Block
   {
-    protected int id, lives, line;
+    protected int id, lives, line, type;
     protected BlockBody body;
     protected bool harmed = false;
     
@@ -31,6 +31,7 @@ namespace SuperblocksProject
     public int Lives { get { return lives; } }
     public int Line { get { return line; } }
     public bool Harmed { get { return harmed; } }
+    public int Type { get { return type; } }
     public Entity Entity { get { return body.Entity; } }
   }
 }

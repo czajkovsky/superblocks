@@ -8,8 +8,9 @@ namespace SuperblocksProject
   {
     public DoubleBlock(int count, int offsetX, int offsetY) : base(count, offsetX, offsetY)
     {
-      body.Draw("textures/block_t2_l2.wpk");
+      this.body.Draw("textures/block_t2_l2.wpk");
       this.lives = 2;
+      this.type = 2;
     }
 
     public override void Hit(BlocksManager manager) 

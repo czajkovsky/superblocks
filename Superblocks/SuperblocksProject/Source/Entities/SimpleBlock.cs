@@ -8,7 +8,8 @@ namespace SuperblocksProject
   {
     public SimpleBlock(int count, int offsetX, int offsetY) : base(count, offsetX, offsetY)
     {
-      body.Draw("textures/block_t1_l1.wpk");
+      this.type = 1;
+      this.body.Draw("textures/block_t1_l1.wpk");
     }
     
     public override void Hit(BlocksManager manager) 

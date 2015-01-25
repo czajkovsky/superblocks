@@ -2,17 +2,7 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
-using WaveEngine.Common;
-using WaveEngine.Common.Graphics;
-using WaveEngine.Common.Math;
-using WaveEngine.Components.Cameras;
-using WaveEngine.Components.Graphics2D;
-using WaveEngine.Components.Graphics3D;
-using WaveEngine.Framework;
-using WaveEngine.Framework.Graphics;
-using WaveEngine.Framework.Resources;
-using WaveEngine.Framework.Services;
-using WaveEngine.Framework.Physics2D;
+using System.Collections;
 #endregion
 
 namespace SuperblocksProject
@@ -36,26 +26,30 @@ namespace SuperblocksProject
         level.Game.CurrentScene.EntityManager.Add(block.Entity);
     }
     
-    public int CheckLine(int line)
+    public int CheckLine(int line, int type)
     {
       int count = 0;
       foreach (Block block in blocks.Values)
-        if ((block.Line == line) && !block.Harmed)
+        if (block.Line == line && block.Type == type && !block.Harmed)
           count++;
       return count;
     }
     
-    public void RemoveLine(int line)
+    public void RemoveLine(int line, int type)
     {
+      ArrayList buffer = new ArrayList();
       foreach (Block block in blocks.Values)
-        if (block.Line == line)
-          RemoveBlock(block.Name);
+        if (block.Line == line && block.Type == type)
+          buffer.Add (block.Name);
+      foreach (string name in buffer)
+        RemoveBlock(name);
     }
     
     public void RemoveBlock(string blockName)
     {
       count--;
-      level.Game.CurrentScene.EntityManager.Remove (blockName);
+      blocks.Remove(blockName);
+      level.Game.CurrentScene.EntityManager.Remove(blockName);
       if (count == 0)
         level.Game.NextLevel();
     }
