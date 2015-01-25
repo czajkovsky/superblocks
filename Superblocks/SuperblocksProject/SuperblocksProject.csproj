@@ -102,6 +102,7 @@
     <Compile Include="Source\Factories\LevelParser.cs" />
     <Compile Include="Source\Entities\DoubleBlock.cs" />
     <Compile Include="Source\Entities\LineBlock.cs" />
+    <Compile Include="Source\Entities\ToggleBlock.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources.weproj" />

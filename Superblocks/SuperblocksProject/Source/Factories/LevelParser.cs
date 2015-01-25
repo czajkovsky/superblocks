@@ -34,6 +34,9 @@ namespace SuperblocksProject
       case 3:
         block = new LineBlock(count, iterator % 10, iterator / 10);
         break;
+      case 4:
+        block = new ToggleBlock(count, iterator % 10, iterator / 10);
+        break;
       default:
         block = new SimpleBlock (count, iterator % 10, iterator / 10);
         break;
