@@ -38,9 +38,7 @@ namespace SuperblocksProject
       EntityManager.Add(new Border("Top", 0, -20, 0, false, false).Entity);
       EntityManager.Add(new Border("Bottom", 0, WaveServices.Platform.ScreenHeight + 40, 0, false, true).Entity);
       
-      EntityManager.Add(createBackground());
-      
-      
+      EntityManager.Add(ui.Background);
       EntityManager.Add(ui.Score);
 
       game.CurrentLevel.Init ();
@@ -51,15 +49,6 @@ namespace SuperblocksProject
       base.Start ();
     }
 
-    private Entity createBackground()
-    {
-      Entity background = new Entity("background")
-        .AddComponent(new Transform2D() { Y = 10, DrawOrder = 1f })
-        .AddComponent(new SpriteRenderer(DefaultLayers.Alpha))
-        .AddComponent(new Sprite("textures/background.wpk"));
-      return background;
-    }
-    
     public Game Game { get { return game; } }
   }
 }
