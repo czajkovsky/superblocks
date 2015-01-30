@@ -22,7 +22,12 @@ namespace SuperblocksProject
        })
         .AddComponent (new Sprite ("textures/ground.wpk"))
         .AddComponent (new RectangleCollider ())
-        .AddComponent (new RigidBody2D () { PhysicBodyType = PhysicBodyType.Static })
+        .AddComponent (new RigidBody2D() {
+          PhysicBodyType = PhysicBodyType.Static,
+          Damping = 0,
+          Restitution = 1.0f,
+          Friction = 0f
+        })
         .AddComponent (new SpriteRenderer (DefaultLayers.Opaque));
        
         if (isSide)

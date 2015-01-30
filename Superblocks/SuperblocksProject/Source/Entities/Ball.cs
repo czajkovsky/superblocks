@@ -33,6 +33,7 @@ namespace SuperblocksProject
           Damping = 0,
           Restitution = 1.0f,
           Friction = 0.0f,
+          FixedRotation = true
         })
         .AddComponent(new SpriteRenderer(DefaultLayers.Alpha))
         .AddComponent(new BallBehaviour());

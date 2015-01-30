@@ -1,11 +1,16 @@
-﻿<Properties MonoDevelop.MonoMac.LastXamMacNagTime="1/24/2015 12:25:59 PM">
+﻿<Properties MonoDevelop.MonoMac.LastXamMacNagTime="1/30/2015 6:24:56 PM">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Superblocks/SuperblocksProject/BorderBehaviour.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Superblocks/SuperblocksProject/Source/Entities/ToggleBlock.cs">
     <Files>
-      <File FileName="Superblocks/SuperblocksProject/Block.cs" Line="24" Column="24" />
-      <File FileName="Superblocks/SuperblocksProject/BorderBehaviour.cs" Line="16" Column="16" />
-      <File FileName="Superblocks/SuperblocksProject/BallBehaviour.cs" Line="34" Column="34" />
-      <File FileName="Superblocks/SuperblocksProject/Ball.cs" Line="1" Column="1" />
+      <File FileName="Superblocks/SuperblocksProject/Source/Entities/Block.cs" Line="47" Column="47" />
+      <File FileName="Superblocks/SuperblocksProject/Source/Managers/BlocksManager.cs" Line="1" Column="1" />
+      <File FileName="Superblocks/SuperblocksProject/Source/Entities/SimpleBlock.cs" Line="12" Column="12" />
+      <File FileName="Superblocks/SuperblocksProject/Source/Behaviours/BlockBehaviour.cs" Line="1" Column="1" />
+      <File FileName="Superblocks/SuperblocksProject/Source/Factories/LevelParser.cs" Line="27" Column="27" />
+      <File FileName="Superblocks/SuperblocksProject/Source/Entities/DoubleBlock.cs" Line="12" Column="12" />
+      <File FileName="Superblocks/SuperblocksProject/Source/Factories/BlockBody.cs" Line="32" Column="32" />
+      <File FileName="Superblocks/SuperblocksProject/Source/Entities/LineBlock.cs" Line="30" Column="30" />
+      <File FileName="Superblocks/SuperblocksProject/Source/Entities/ToggleBlock.cs" Line="31" Column="31" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

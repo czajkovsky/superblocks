@@ -35,10 +35,10 @@ namespace SuperblocksProject
         .AddComponent(new PerPixelCollider("textures/pad.wpk", 1f))
         .AddComponent(new RigidBody2D() {
           PhysicBodyType = PhysicBodyType.Dynamic,
-          Mass = 400f,
-          Damping = 1,
-          Restitution = 0f,
-          Friction = 1.0f,
+          Mass = 400000f,
+          Damping = 0,
+          Restitution = 1f,
+          Friction = 0f,
           IgnoreGravity = true,
           FixedRotation = true
         })

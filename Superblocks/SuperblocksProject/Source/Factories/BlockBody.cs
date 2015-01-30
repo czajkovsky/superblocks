@@ -31,7 +31,12 @@ namespace SuperblocksProject
       entity.AddComponent(new Transform2D() { X = blockXOffset (offsetX), Y = blockYOffset (offsetY), Origin = Vector2.Center })
             .AddComponent (new RectangleCollider())
             .AddComponent (new Sprite (texture))
-            .AddComponent (new RigidBody2D() { PhysicBodyType = PhysicBodyType.Static })
+            .AddComponent (new RigidBody2D() {
+              PhysicBodyType = PhysicBodyType.Static,
+              Damping = 0,
+              Restitution = 1f,
+              Friction = 0.0f
+            })
             .AddComponent (new SpriteRenderer(DefaultLayers.Alpha))
             .AddComponent (new BlockBehaviour(block));
     }
