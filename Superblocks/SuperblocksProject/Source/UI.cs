@@ -20,28 +20,30 @@ namespace SuperblocksProject
   public class UI
   {
     private TextBlock score;
+    private TextBlock lives;
     private Entity background;
     
     public UI ()
     {
-      this.score = createScore();
+      this.score = createText("Score 0", TextAlignment.Left, HorizontalAlignment.Left);
+      this.lives = createText("Lives 3", TextAlignment.Right, HorizontalAlignment.Right);
       this.background = createBackground();
     }
     
-    private TextBlock createScore()
+    private TextBlock createText(string text, TextAlignment textAlignment, HorizontalAlignment horizontalAlignment)
     {
       return new TextBlock()
       {  
-        Text = "Score: 0",
+        Text = text,
         Width = 300,
         Foreground = Color.White,
-        TextAlignment = TextAlignment.Left,
-        HorizontalAlignment = HorizontalAlignment.Left,
+        TextAlignment = textAlignment,
+        HorizontalAlignment = horizontalAlignment,
         VerticalAlignment = VerticalAlignment.Bottom,
-        Margin = new Thickness(10, 10, 0, 0)
+        Margin = new Thickness(10, 0, 10, 0)
       };
     }
-    
+
     private Entity createBackground()
     {
       Entity background = new Entity("background")
@@ -58,6 +60,7 @@ namespace SuperblocksProject
     
     public Entity Background { get { return background; } }    
     public TextBlock Score { get { return score; } }
+    public TextBlock Lives { get { return lives; } }
   }
 }
 

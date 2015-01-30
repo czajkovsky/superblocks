@@ -40,6 +40,7 @@ namespace SuperblocksProject
       
       EntityManager.Add(ui.Background);
       EntityManager.Add(ui.Score);
+      EntityManager.Add(ui.Lives);
       
       game.CurrentLevel.Init ();
     }
