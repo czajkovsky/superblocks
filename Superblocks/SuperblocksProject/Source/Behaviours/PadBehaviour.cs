@@ -21,13 +21,13 @@ namespace SuperblocksProject
     private const int RIGHT = 1;
         
     private PadState currentState, lastState;
-    private enum PadState { Idle, Left, Right };
+    private enum PadState { Pre, Idle, Left, Right };
    
     private float impulse;
     
     public PadBehaviour (Pad pad)
     {
-      this.currentState = PadState.Idle;
+      this.currentState = PadState.Pre;
       this.impulse = INITIAL_SPEED;
     }
         
@@ -36,6 +36,11 @@ namespace SuperblocksProject
       var keyboard = WaveServices.Input.KeyboardState;      
       Vector2 direction = Vector2.Zero;
       RigidBody2D body = Owner.FindComponent<RigidBody2D>();
+      
+      if (body != null && currentState == PadState.Pre) {
+        body.OnPhysic2DCollision += onCollision;
+        currentState = PadState.Idle;
+      }
       
       currentState = PadState.Idle;
       if (keyboard.Left == ButtonState.Pressed)
@@ -61,6 +66,14 @@ namespace SuperblocksProject
         body.LinearVelocity = direction;
       }
       lastState = currentState;      
+    }
+    
+    private void onCollision(object sender, Physic2DCollisionEventArgs args)
+    {
+      if (args.Body2DB.Owner.Name.StartsWith("Ball")) {
+        BallCollider collider = new BallCollider(args.Body2DB);
+        collider.AdjustX ();
+      }
     }
     
     private void incrementImpuls(float diff)

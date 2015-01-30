@@ -14,6 +14,7 @@ namespace SuperblocksProject
   {
     private RigidBody2D body;
     private const float correlationFactorY = 0.11f;
+    private const float correlationFactorX = 0.09f;
     
     public BallCollider (RigidBody2D body)
     {
@@ -29,18 +30,38 @@ namespace SuperblocksProject
         body.ApplyLinearImpulse (impulse);
     }
     
-    private Vector2 correlationYImpulse()
+    public void AdjustX()
+    {
+      if (Math.Abs (body.LinearVelocity.X) > 0.03f) 
+        return;
+      Vector2 impulse = correlationXImpulse();
+      if (correlationImpulseInRange (impulse))
+        body.ApplyLinearImpulse (impulse);
+    }
+    
+    private Vector2 correlationXImpulse()
     {
       Vector2 impulse = Vector2.Zero;
-      float impulseY = correlationFactorY * ((body.LinearVelocity.Y > 0) ? 1f : -1f);
-      float impulseX = correlateX (body.LinearVelocity.X, body.LinearVelocity.Y, correlationFactorY);
+      float impulseY = correlationFactorX;
+      float impulseX = correlateValue(body.LinearVelocity.Y, body.LinearVelocity.X, correlationFactorX);
       
       impulse += Vector2.UnitX * impulseX;
       impulse += Vector2.UnitY * impulseY;
       return impulse;
     }
     
-    private float correlateX(float x, float y, float factor)
+    private Vector2 correlationYImpulse()
+    {
+      Vector2 impulse = Vector2.Zero;
+      float impulseY = correlationFactorY * ((body.LinearVelocity.Y > 0) ? 1f : -1f);
+      float impulseX = correlateValue(body.LinearVelocity.X, body.LinearVelocity.Y, correlationFactorY);
+      
+      impulse += Vector2.UnitX * impulseX;
+      impulse += Vector2.UnitY * impulseY;
+      return impulse;
+    }
+    
+    private float correlateValue(float x, float y, float factor)
     {
       float c = (float)Math.Pow ((double)(y + factor), 2) - y * y;
       float result1, result2;
