@@ -26,6 +26,7 @@ namespace SuperblocksProject
     public void Restart()
     {
       game.Player.DecrementLives();
+      game.CurrentScene.UI.SetLives(game.Player.Lives);
       ballsManager.AddBall();
     }
     

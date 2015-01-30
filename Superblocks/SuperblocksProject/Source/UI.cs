@@ -58,6 +58,11 @@ namespace SuperblocksProject
       score.Text = "Score: " + points;
     }
     
+    public void SetLives(int points)
+    {
+      lives.Text = "Lives: " + points;
+    }
+    
     public Entity Background { get { return background; } }    
     public TextBlock Score { get { return score; } }
     public TextBlock Lives { get { return lives; } }
