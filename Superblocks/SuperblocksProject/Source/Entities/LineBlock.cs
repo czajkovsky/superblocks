@@ -8,6 +8,7 @@ namespace SuperblocksProject
   {
     public LineBlock(int count, int offsetX, int offsetY) : base(count, offsetX, offsetY)
     {
+      this.points = 5;
       this.body.Draw("textures/lineBlock1.wpk");
       this.type = 3;
     }

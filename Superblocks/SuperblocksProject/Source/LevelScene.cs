@@ -40,7 +40,7 @@ namespace SuperblocksProject
       
       EntityManager.Add(ui.Background);
       EntityManager.Add(ui.Score);
-
+      
       game.CurrentLevel.Init ();
     }
 
@@ -50,6 +50,7 @@ namespace SuperblocksProject
     }
 
     public Game Game { get { return game; } }
+    public UI UI { get { return ui; } }
   }
 }
 

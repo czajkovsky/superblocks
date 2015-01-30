@@ -16,6 +16,10 @@ namespace SuperblocksProject
       Console.WriteLine ("score: " + this.score + ", lives: " + this.lives);
     }
     
+    public void AddPoints(int points) {
+      score += points;
+    }
+    
     public void DecrementLives()
     {
       lives--;
@@ -27,6 +31,9 @@ namespace SuperblocksProject
     {
       lives++;
     }
+    
+    public int Score { get { return score; } }
+    public int Lives { get { return lives; } }
   }
 }
 

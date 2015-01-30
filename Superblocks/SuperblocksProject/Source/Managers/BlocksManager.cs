@@ -48,6 +48,8 @@ namespace SuperblocksProject
     public void RemoveBlock(string blockName)
     {
       count--;
+      level.Game.Player.AddPoints(blocks[blockName].Points);
+      level.Game.CurrentScene.UI.SetScore(level.Game.Player.Score);
       blocks.Remove(blockName);
       level.Game.CurrentScene.EntityManager.Remove(blockName);
       if (count == 0)

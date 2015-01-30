@@ -51,6 +51,11 @@ namespace SuperblocksProject
       return background;
     }
     
+    public void SetScore(int points)
+    {
+      score.Text = "Score: " + points;
+    }
+    
     public Entity Background { get { return background; } }    
     public TextBlock Score { get { return score; } }
   }

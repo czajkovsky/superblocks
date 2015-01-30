@@ -8,6 +8,7 @@ namespace SuperblocksProject
   {
     public ToggleBlock(int count, int offsetX, int offsetY) : base(count, offsetX, offsetY)
     {
+      this.points = 8;
       this.body.Draw("textures/toggleBlock1.wpk");
       this.type = 4;
     }
