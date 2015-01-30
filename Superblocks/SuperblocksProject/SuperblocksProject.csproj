@@ -103,6 +103,7 @@
     <Compile Include="Source\Entities\DoubleBlock.cs" />
     <Compile Include="Source\Entities\LineBlock.cs" />
     <Compile Include="Source\Entities\ToggleBlock.cs" />
+    <Compile Include="Source\UI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources.weproj" />

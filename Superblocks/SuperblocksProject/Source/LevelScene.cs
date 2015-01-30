@@ -19,11 +19,13 @@ namespace SuperblocksProject
   {
     private Game game;
     private Pad pad;
+    private UI ui;
 
     public LevelScene (Game game)
     {
       this.game = game;
       this.pad = new Pad();
+      this.ui = new UI();
     }
 
     protected override void CreateScene()
@@ -37,6 +39,9 @@ namespace SuperblocksProject
       EntityManager.Add(new Border("Bottom", 0, WaveServices.Platform.ScreenHeight + 40, 0, false, true).Entity);
       
       EntityManager.Add(createBackground());
+      
+      
+      EntityManager.Add(ui.Score);
 
       game.CurrentLevel.Init ();
     }
