@@ -10,12 +10,7 @@ namespace SuperblocksProject
       this.lives = 3;
       this.score = 0;
     }
-    
-    public void Describe()
-    {
-      Console.WriteLine ("score: " + this.score + ", lives: " + this.lives);
-    }
-    
+        
     public void AddPoints(int points) {
       score += points;
     }
