@@ -23,8 +23,6 @@ namespace SuperblocksProject
     public void DecrementLives()
     {
       lives--;
-      if (lives == 0)
-        Console.WriteLine("GAME OVER");
     }
     
     public void IncrementLives()
