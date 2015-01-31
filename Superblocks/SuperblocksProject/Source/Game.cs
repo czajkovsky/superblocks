@@ -22,7 +22,7 @@ namespace SuperblocksProject
 
       ViewportManager vm = WaveServices.ViewportManager;
       vm.Activate (1280, 720, ViewportManager.StretchMode.Uniform);     
-      SetScene(new UIScene(this, "intro"));
+      setScene(new UIScene(this, "intro"));
     }
     
     public void Start()
@@ -31,13 +31,7 @@ namespace SuperblocksProject
       player = new Player();
       currentLevel = new Level(levelId, this);
       levelScene = new LevelScene(this);
-      SetScene(levelScene);
-    }
-    
-    public void SetScene(Scene scene)
-    {
-      ScreenContext screenContext = new ScreenContext (scene);  
-      WaveServices.ScreenContextManager.To(screenContext);
+      setScene(levelScene);
     }
     
     public void NextLevel() {
@@ -49,6 +43,13 @@ namespace SuperblocksProject
     
     public void End()
     {
+      setScene(new UIScene(this, "gameover"));
+    }
+    
+    private void setScene(Scene scene)
+    {
+      ScreenContext screenContext = new ScreenContext (scene);  
+      WaveServices.ScreenContextManager.To(screenContext);
     }
     
     public LevelScene LevelScene { get { return levelScene; } }

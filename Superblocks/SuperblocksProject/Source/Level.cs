@@ -30,6 +30,7 @@ namespace SuperblocksProject
       if (game.Player.Lives > 0) {
         ballsManager.AddBall ();
       } else {
+        game.End();
       }
     }
     
