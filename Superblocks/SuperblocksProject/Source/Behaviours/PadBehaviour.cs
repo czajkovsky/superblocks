@@ -78,8 +78,7 @@ namespace SuperblocksProject
         collider.AdjustX ();
       }
       else if (args.Body2DB.Owner.Name.StartsWith("Bonus")) {
-        RigidBody2D body = args.Body2DB;
-        pad.Game.CurrentLevel.BonusesManager.ApplyBonus(body.Owner.Name);
+        pad.Game.CurrentLevel.BonusesManager.ApplyBonus(args.Body2DB.Owner.Name);
       }
     }
     
