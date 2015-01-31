@@ -48,7 +48,9 @@ namespace SuperblocksProject
     public void RemoveBlock(string blockName)
     {
       count--;
-      level.Game.Player.AddPoints(blocks[blockName].Points);
+      Block block = blocks [blockName];
+      level.Game.Player.AddPoints(block.Points);
+      level.BonusesManager.CreateBonus (block.Body.OffsetX, block.Body.OffsetY);
       level.Game.LevelScene.UI.SetScore(level.Game.Player.Score);
       blocks.Remove(blockName);
       level.Game.LevelScene.EntityManager.Remove(blockName);

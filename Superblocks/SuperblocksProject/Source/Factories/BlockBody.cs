@@ -64,6 +64,8 @@ namespace SuperblocksProject
     } 
     
     public Entity Entity { get { return entity; } }
+    public float OffsetX { get { return blockXOffset (offsetX); } }
+    public float OffsetY { get { return blockXOffset (offsetY); } }
   }
 }
 

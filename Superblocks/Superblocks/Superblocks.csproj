@@ -1,4 +1,4 @@
-xa<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -134,7 +134,7 @@ xa<?xml version="1.0" encoding="utf-8"?>
     <BundleResource Include="Resources\textures\toggleBlock0.wpk" />
     <BundleResource Include="Resources\textures\toggleBlock1.wpk" />
     <BundleResource Include="Resources\textures\bonusBall.wpk" />
-    <BundleResource Include="Resources\textures\bonusMutlipleBall.wpk" />
+    <BundleResource Include="Resources\textures\bonusMultipleBall.wpk" />
     <BundleResource Include="Resources\textures\bonusHeart.wpk" />
     <BundleResource Include="Resources\levels\1.txt" />
     <BundleResource Include="Resources\levels\2.txt" />

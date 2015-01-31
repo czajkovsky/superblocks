@@ -33,6 +33,7 @@ namespace SuperblocksProject
     public int Points { get { return points; } }
     public bool Harmed { get { return harmed; } }
     public int Type { get { return type; } }
+    public BlockBody Body { get { return body; } }
     public Entity Entity { get { return body.Entity; } }
   }
 }

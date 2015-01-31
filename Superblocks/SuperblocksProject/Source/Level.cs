@@ -13,6 +13,7 @@ namespace SuperblocksProject
     private int id;
     private BallsManager ballsManager;
     private BlocksManager blocksManager;
+    private BonusesManager bonusesManager;
     private Game game;
     
     public Level(int id, Game game)
@@ -21,6 +22,7 @@ namespace SuperblocksProject
       this.game = game;
       this.ballsManager = new BallsManager(this);
       this.blocksManager = new BlocksManager(this);
+      this.bonusesManager = new BonusesManager(this);
     }
     
     public void Restart()
@@ -47,6 +49,7 @@ namespace SuperblocksProject
     public int Id { get { return id; } }
     public BallsManager BallsManager { get { return ballsManager; } }
     public BlocksManager BlocksManager { get { return blocksManager; } }
+    public BonusesManager BonusesManager { get { return bonusesManager; } }
     public Game Game { get { return game; } }
   }
 }

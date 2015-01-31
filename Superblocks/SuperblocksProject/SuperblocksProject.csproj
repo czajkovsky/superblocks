@@ -106,6 +106,9 @@
     <Compile Include="Source\Scenes\LevelScene.cs" />
     <Compile Include="Source\Behaviours\UISceneBehaviour.cs" />
     <Compile Include="Source\Scenes\UIScene.cs" />
+    <Compile Include="Source\Managers\BonusesManager.cs" />
+    <Compile Include="Source\Entities\Bonus.cs" />
+    <Compile Include="Source\Behaviours\BonusBehaviour.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources.weproj" />
