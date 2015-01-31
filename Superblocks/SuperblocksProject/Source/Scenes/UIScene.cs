@@ -18,10 +18,12 @@ namespace SuperblocksProject
   public class UIScene : Scene
   {
     private Game game;
+    private string texture;
 
     public UIScene (Game game, String texture)
     {
       this.game = game;
+      this.texture = texture;
     }
 
     protected override void CreateScene()
@@ -30,7 +32,7 @@ namespace SuperblocksProject
       Entity background = new Entity("background")
         .AddComponent(new Transform2D() { Y = 10, DrawOrder = 1f })
         .AddComponent(new SpriteRenderer(DefaultLayers.Alpha))
-        .AddComponent(new Sprite("textures/intro.wpk"));
+        .AddComponent(new Sprite("textures/" + texture + ".wpk"));
       EntityManager.Add(background);
       AddSceneBehavior(new UISceneBehaviour(), SceneBehavior.Order.PreUpdate);
     }
