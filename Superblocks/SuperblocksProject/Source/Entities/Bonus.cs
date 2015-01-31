@@ -11,17 +11,17 @@ using WaveEngine.Framework.Physics2D;
 
 namespace SuperblocksProject
 {
-  public class Bonus
+  public abstract class Bonus
   {
-    private Entity entity;
-    private int id;
+    protected Entity entity;
+    protected int id;
 
-    public Bonus(int id, float x, float y)
+    public Bonus(int id, float x, float y, string texture)
     {
       this.id = id;
       this.entity = new Entity("Bonus" + id)
         .AddComponent(new Transform2D() { X = x - 20f, Y = y - 130f })
-        .AddComponent(new Sprite("textures/bonusHeart.wpk"))
+        .AddComponent(new Sprite("textures/" + texture + ".wpk"))
         .AddComponent(new CircleCollider())
         .AddComponent(new RigidBody2D() {
           PhysicBodyType = PhysicBodyType.Dynamic,
