@@ -22,7 +22,7 @@ namespace SuperblocksProject
     {
       System.Random random = new System.Random ();
       if (random.Next(0, 10) > -1) {
-        Bonus bonus = new Bonus(this.sequence++);
+        Bonus bonus = new Bonus(this.sequence++, x, y);
         level.Game.LevelScene.EntityManager.Add(bonus.Entity);
       }
     }

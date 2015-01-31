@@ -16,15 +16,11 @@ namespace SuperblocksProject
     private Entity entity;
     private int id;
 
-    public Bonus(int id)
+    public Bonus(int id, float x, float y)
     {
       this.id = id;
       this.entity = new Entity("Bonus" + id)
-        .AddComponent(
-          new Transform2D() { X = WaveServices.Platform.ScreenWidth / 2,
-            Y = 400,
-            Origin = Vector2.Center }
-        )
+        .AddComponent(new Transform2D() { X = x - 20f, Y = y - 130f })
         .AddComponent(new Sprite("textures/bonusHeart.wpk"))
         .AddComponent(new CircleCollider())
         .AddComponent(new RigidBody2D() {
