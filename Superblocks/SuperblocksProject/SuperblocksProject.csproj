@@ -83,7 +83,6 @@
     <Compile Include="Source\Entities\Ball.cs" />
     <Compile Include="Source\Behaviours\BallBehaviour.cs" />
     <Compile Include="Source\Colliders\BallCollider.cs" />
-    <Compile Include="Source\Entities\Block.cs" />
     <Compile Include="Source\Behaviours\BlockBehaviour.cs" />
     <Compile Include="Source\Entities\Border.cs" />
     <Compile Include="Source\Helpers\MathHelpers.cs" />
@@ -96,20 +95,21 @@
     <Compile Include="Source\Behaviours\BottomBorderBehaviour.cs" />
     <Compile Include="Source\Managers\BallsManager.cs" />
     <Compile Include="Source\Managers\BlocksManager.cs" />
-    <Compile Include="Source\Entities\SimpleBlock.cs" />
     <Compile Include="Source\Factories\BlockBody.cs" />
     <Compile Include="Source\Factories\LevelParser.cs" />
-    <Compile Include="Source\Entities\DoubleBlock.cs" />
-    <Compile Include="Source\Entities\LineBlock.cs" />
-    <Compile Include="Source\Entities\ToggleBlock.cs" />
     <Compile Include="Source\UI.cs" />
     <Compile Include="Source\Scenes\LevelScene.cs" />
     <Compile Include="Source\Behaviours\UISceneBehaviour.cs" />
     <Compile Include="Source\Scenes\UIScene.cs" />
     <Compile Include="Source\Managers\BonusesManager.cs" />
-    <Compile Include="Source\Entities\Bonus.cs" />
     <Compile Include="Source\Behaviours\BonusBehaviour.cs" />
-    <Compile Include="Source\Entities\BallBonus.cs" />
+    <Compile Include="Source\Entities\Bonuses\BallBonus.cs" />
+    <Compile Include="Source\Entities\Bonuses\Bonus.cs" />
+    <Compile Include="Source\Entities\Blocks\DoubleBlock.cs" />
+    <Compile Include="Source\Entities\Blocks\LineBlock.cs" />
+    <Compile Include="Source\Entities\Blocks\Block.cs" />
+    <Compile Include="Source\Entities\Blocks\SimpleBlock.cs" />
+    <Compile Include="Source\Entities\Blocks\ToggleBlock.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources.weproj" />
@@ -124,5 +124,7 @@
     <Folder Include="Source\Managers\" />
     <Folder Include="Source\Factories\" />
     <Folder Include="Source\Scenes\" />
+    <Folder Include="Source\Entities\Blocks\" />
+    <Folder Include="Source\Entities\Bonuses\" />
   </ItemGroup>
 </Project>
