@@ -25,7 +25,9 @@ namespace SuperblocksProject
       RigidBody2D body = Owner.FindComponent<RigidBody2D>();
 
       if (body != null && state == BonusState.Pre) {
-//          body.ApplyLinearImpulse (initialVector);
+        Vector2 impulse = Vector2.Zero;
+        impulse += Vector2.UnitY * 0.1f;
+        body.ApplyLinearImpulse (impulse);
         state = BonusState.Running;
       }
     }
