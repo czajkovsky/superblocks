@@ -30,7 +30,7 @@ namespace SuperblocksProject
           Restitution = 1.0f,
           Friction = 0.0f,
           FixedRotation = true,
-          CollidesWith = Physic2DCategory.Cat1 // pad & border
+          CollidesWith = Physic2DCategory.Cat1
         })
         .AddComponent(new SpriteRenderer(DefaultLayers.Alpha))
         .AddComponent(new BonusBehaviour());

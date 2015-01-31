@@ -11,6 +11,7 @@ namespace SuperblocksProject
   {
     private Level level;
     private int sequence;
+    private Dictionary<string, Bonus> bonuses = new Dictionary<string, Bonus>();
     
     public BonusesManager (Level level)
     {
@@ -25,6 +26,12 @@ namespace SuperblocksProject
         Bonus bonus = new Bonus(this.sequence++, x, y);
         level.Game.LevelScene.EntityManager.Add(bonus.Entity);
       }
+    }
+    
+    public void RemoveBonus(string name)
+    {
+      level.Game.LevelScene.EntityManager.Remove(name);
+      bonuses.Remove (name);
     }
   }
 }
