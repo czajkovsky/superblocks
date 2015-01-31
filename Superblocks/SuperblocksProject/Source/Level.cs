@@ -50,6 +50,7 @@ namespace SuperblocksProject
     public void AddLive()
     {
       game.Player.IncrementLives();
+      game.LevelScene.UI.SetLives(game.Player.Lives);
     }
     
     public void Finish() {

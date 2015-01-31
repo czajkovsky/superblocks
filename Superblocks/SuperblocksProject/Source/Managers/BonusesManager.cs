@@ -26,9 +26,9 @@ namespace SuperblocksProject
         Bonus bonus;
         int rand = random.Next (0, 10);
         if (rand > 8)
-          bonus = new BallBonus (++sequence, x, y);
-        else if(rand > 5)
-          bonus = new BallBonus (++sequence, x, y);
+          bonus = new MultipleBallBonus (++sequence, x, y);
+        else if (rand > 5)
+          bonus = new LiveBonus (++sequence, x, y);
         else
           bonus = new BallBonus (++sequence, x, y);
         bonuses.Add(bonus.Name, bonus);
@@ -38,7 +38,6 @@ namespace SuperblocksProject
     
     public void ApplyBonus(string name)
     {
-      Console.WriteLine (name);
       Bonus bonus = bonuses[name];
       bonus.Apply(level);
       RemoveBonus(name);
@@ -46,8 +45,10 @@ namespace SuperblocksProject
     
     public void RemoveBonus(string name)
     {
-      level.Game.LevelScene.EntityManager.Remove(name);
-      bonuses.Remove (name);
+      if (bonuses.ContainsKey (name)) {
+        level.Game.LevelScene.EntityManager.Remove (name);
+        bonuses.Remove (name);
+      }
     }
   }
 }

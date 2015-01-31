@@ -110,6 +110,8 @@
     <Compile Include="Source\Entities\Blocks\Block.cs" />
     <Compile Include="Source\Entities\Blocks\SimpleBlock.cs" />
     <Compile Include="Source\Entities\Blocks\ToggleBlock.cs" />
+    <Compile Include="Source\Entities\Bonuses\MultipleBallBonus.cs" />
+    <Compile Include="Source\Entities\Bonuses\LiveBonus.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources.weproj" />
