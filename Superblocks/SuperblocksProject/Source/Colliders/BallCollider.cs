@@ -14,7 +14,7 @@ namespace SuperblocksProject
   {
     private RigidBody2D body;
     private const float correlationFactorY = 0.11f;
-    private const float correlationFactorX = 0.09f;
+    private const float correlationFactorX = 0.2f;
     
     public BallCollider (RigidBody2D body)
     {
@@ -26,17 +26,17 @@ namespace SuperblocksProject
       if (Math.Abs (body.LinearVelocity.Y) > 0.3f) 
         return;
       Vector2 impulse = correlationYImpulse();
-      if (correlationImpulseInRange (impulse))
-        body.ApplyLinearImpulse (impulse);
+      if (correlationImpulseInRange(impulse))
+        body.ApplyLinearImpulse(impulse);
     }
     
     public void AdjustX()
     {
       if (Math.Abs (body.LinearVelocity.X) > 0.03f) 
         return;
+      Console.WriteLine (body.LinearVelocity);
       Vector2 impulse = correlationXImpulse();
-      if (correlationImpulseInRange (impulse))
-        body.ApplyLinearImpulse (impulse);
+      body.ApplyLinearImpulse(impulse);
     }
     
     private Vector2 correlationXImpulse()
@@ -47,6 +47,7 @@ namespace SuperblocksProject
       
       impulse += Vector2.UnitX * impulseX;
       impulse += Vector2.UnitY * impulseY;
+      Console.WriteLine (impulse);
       return impulse;
     }
     
@@ -63,7 +64,7 @@ namespace SuperblocksProject
     
     private float correlateValue(float x, float y, float factor)
     {
-      float c = (float)Math.Pow ((double)(y + factor), 2) - y * y;
+      float c = (float)Math.Pow((double)(y + factor), 2) - y * y;
       float result1, result2;
       MathHelpers.SquareEquation(1f, 2f * x, c, out result1, out result2);
       return (Math.Abs(result1) > Math.Abs(result2) ? result2 : result1);

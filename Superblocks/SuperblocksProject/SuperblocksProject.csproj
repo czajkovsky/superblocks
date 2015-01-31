@@ -91,7 +91,6 @@
     <Compile Include="Source\Behaviours\PadBehaviour.cs" />
     <Compile Include="Source\Game.cs" />
     <Compile Include="Source\Level.cs" />
-    <Compile Include="Source\LevelScene.cs" />
     <Compile Include="Source\Player.cs" />
     <Compile Include="Source\Behaviours\SideBorderBehaviour.cs" />
     <Compile Include="Source\Behaviours\BottomBorderBehaviour.cs" />
@@ -104,6 +103,9 @@
     <Compile Include="Source\Entities\LineBlock.cs" />
     <Compile Include="Source\Entities\ToggleBlock.cs" />
     <Compile Include="Source\UI.cs" />
+    <Compile Include="Source\Scenes\LevelScene.cs" />
+    <Compile Include="Source\Scenes\IntroScene.cs" />
+    <Compile Include="Source\Behaviours\UISceneBehaviour.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources.weproj" />
@@ -117,5 +119,6 @@
     <Folder Include="Source\Helpers\" />
     <Folder Include="Source\Managers\" />
     <Folder Include="Source\Factories\" />
+    <Folder Include="Source\Scenes\" />
   </ItemGroup>
 </Project>

@@ -26,15 +26,15 @@ namespace SuperblocksProject
     public void Restart()
     {
       game.Player.DecrementLives();
-      game.CurrentScene.UI.SetLives(game.Player.Lives);
-      ballsManager.AddBall();
+      game.LevelScene.UI.SetLives(game.Player.Lives);
+      if (game.Player.Lives > 0) {
+        ballsManager.AddBall ();
+      } else {
+      }
     }
     
     public void Init()
     {
-      ballsManager.AddBall();
-      ballsManager.AddBall();
-      ballsManager.AddBall();
       ballsManager.AddBall();
       blocksManager.Init();
     }

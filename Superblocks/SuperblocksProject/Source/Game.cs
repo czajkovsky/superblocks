@@ -3,6 +3,7 @@ using System;
 using WaveEngine.Common;
 using WaveEngine.Common.Graphics;
 using WaveEngine.Framework;
+using WaveEngine.Common.Input;
 using WaveEngine.Framework.Services;
 #endregion
 
@@ -12,7 +13,7 @@ namespace SuperblocksProject
   {
     private Player player;
     private Level currentLevel;
-    private LevelScene currentScene;
+    private LevelScene levelScene;
     private int levelId;
     
     public override void Initialize (IApplication application)
@@ -20,15 +21,22 @@ namespace SuperblocksProject
       base.Initialize (application);
 
       ViewportManager vm = WaveServices.ViewportManager;
-      vm.Activate (1280, 720, ViewportManager.StretchMode.Uniform);
-
+      vm.Activate (1280, 720, ViewportManager.StretchMode.Uniform);     
+      SetScene(new IntroScene(this));
+    }
+    
+    public void Start()
+    {
       levelId = 1;
       player = new Player();
       currentLevel = new Level(levelId, this);
-      currentScene = new LevelScene(this);
-      
-      ScreenContext screenContext = new ScreenContext(currentScene);	
-      WaveServices.ScreenContextManager.To (screenContext);
+      levelScene = new LevelScene(this);
+    }
+    
+    public void SetScene(Scene scene)
+    {
+      ScreenContext screenContext = new ScreenContext (scene);  
+      WaveServices.ScreenContextManager.To(screenContext);
     }
     
     public void NextLevel() {
@@ -38,7 +46,11 @@ namespace SuperblocksProject
       currentLevel.Init();
     }
     
-    public LevelScene CurrentScene { get { return currentScene; } }
+    public void End()
+    {
+    }
+    
+    public LevelScene LevelScene { get { return levelScene; } }
     public Level CurrentLevel { get { return currentLevel; } }
     public Player Player { get { return player; } }
   }

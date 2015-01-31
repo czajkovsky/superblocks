@@ -23,7 +23,7 @@ namespace SuperblocksProject
     public void Init()
     {
       foreach (Block block in blocks.Values)
-        level.Game.CurrentScene.EntityManager.Add(block.Entity);
+        level.Game.LevelScene.EntityManager.Add(block.Entity);
     }
     
     public int CheckLine(int line, int type)
@@ -49,9 +49,9 @@ namespace SuperblocksProject
     {
       count--;
       level.Game.Player.AddPoints(blocks[blockName].Points);
-      level.Game.CurrentScene.UI.SetScore(level.Game.Player.Score);
+      level.Game.LevelScene.UI.SetScore(level.Game.Player.Score);
       blocks.Remove(blockName);
-      level.Game.CurrentScene.EntityManager.Remove(blockName);
+      level.Game.LevelScene.EntityManager.Remove(blockName);
       if (count == 0)
         level.Game.NextLevel();
     }

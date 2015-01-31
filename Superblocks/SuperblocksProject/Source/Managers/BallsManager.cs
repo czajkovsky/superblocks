@@ -34,12 +34,12 @@ namespace SuperblocksProject
       sequence++;
       Ball ball = new Ball(sequence);
       balls.Add (ball.Name, ball);
-      level.Game.CurrentScene.EntityManager.Add(ball.Entity);
+      level.Game.LevelScene.EntityManager.Add(ball.Entity);
     }
     
     public void RemoveBall(string ballName) {
       count--;
-      level.Game.CurrentScene.EntityManager.Remove(ballName);
+      level.Game.LevelScene.EntityManager.Remove(ballName);
       balls.Remove (ballName);
       if (count == 0)
         level.Restart();
@@ -47,7 +47,7 @@ namespace SuperblocksProject
     
     public void removeAllBalls() {
       foreach (KeyValuePair<string, Ball> ball in balls)
-        level.Game.CurrentScene.EntityManager.Remove (ball.Key);
+        level.Game.LevelScene.EntityManager.Remove (ball.Key);
     }
   }
 }
