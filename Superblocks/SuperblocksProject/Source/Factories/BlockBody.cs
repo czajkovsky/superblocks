@@ -35,7 +35,8 @@ namespace SuperblocksProject
               PhysicBodyType = PhysicBodyType.Static,
               Damping = 0,
               Restitution = 1f,
-              Friction = 0.0f
+              Friction = 0.0f,
+              CollisionCategories = Physic2DCategory.Cat1
             })
             .AddComponent (new SpriteRenderer(DefaultLayers.Alpha))
             .AddComponent (new BlockBehaviour(block));

@@ -40,7 +40,8 @@ namespace SuperblocksProject
           Restitution = 1f,
           Friction = 0f,
           IgnoreGravity = true,
-          FixedRotation = true
+          FixedRotation = true,
+          CollisionCategories = Physic2DCategory.All
         })
         .AddComponent(new PadBehaviour(this));
     }
