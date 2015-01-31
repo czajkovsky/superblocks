@@ -31,6 +31,7 @@ namespace SuperblocksProject
       player = new Player();
       currentLevel = new Level(levelId, this);
       levelScene = new LevelScene(this);
+      SetScene(levelScene);
     }
     
     public void SetScene(Scene scene)

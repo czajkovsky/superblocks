@@ -34,7 +34,6 @@ namespace SuperblocksProject
     {
       if (Math.Abs (body.LinearVelocity.X) > 0.03f) 
         return;
-      Console.WriteLine (body.LinearVelocity);
       Vector2 impulse = correlationXImpulse();
       body.ApplyLinearImpulse(impulse);
     }

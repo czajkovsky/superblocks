@@ -9,20 +9,19 @@ namespace SuperblocksProject
 {
   public class UISceneBehaviour : SceneBehavior
   {
-    public UISceneBehaviour ()
+    private Game game;
+    public UISceneBehaviour (Game game)
     {
-      Console.WriteLine ("handle");
+      this.game = game;
     }
     
-    protected override void ResolveDependencies()
-    {
-    }
+    protected override void ResolveDependencies() {}
     
     protected override void Update(TimeSpan gameTime)
     {
       var keyboard = WaveServices.Input.KeyboardState;      
       if (keyboard.Space == ButtonState.Pressed)
-        Console.WriteLine ("STAAART!");
+        game.Start();
     }
   }
 }

@@ -34,7 +34,7 @@ namespace SuperblocksProject
         .AddComponent(new SpriteRenderer(DefaultLayers.Alpha))
         .AddComponent(new Sprite("textures/" + texture + ".wpk"));
       EntityManager.Add(background);
-      AddSceneBehavior(new UISceneBehaviour(), SceneBehavior.Order.PreUpdate);
+      AddSceneBehavior(new UISceneBehaviour(game), SceneBehavior.Order.PreUpdate);
     }
 
     protected override void Start ()
