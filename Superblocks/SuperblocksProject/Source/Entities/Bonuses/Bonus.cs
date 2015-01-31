@@ -35,6 +35,8 @@ namespace SuperblocksProject
         .AddComponent(new SpriteRenderer(DefaultLayers.Alpha))
         .AddComponent(new BonusBehaviour());
     }
+    
+    public abstract void Apply(Level level);
 
     public string Name { get { return "Bonus" + id; } }
     public Entity Entity { get { return entity; } }

@@ -6,9 +6,9 @@ namespace SuperblocksProject
   {
     public BallBonus (int id, float offsetX, float offsetY) : base(id, offsetX, offsetY, "bonusBall") {}
     
-    public void Apply()
+    public override void Apply(Level level)
     {
-      Console.WriteLine("apply");
+      level.AddBall();
     }
   }
 }

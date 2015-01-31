@@ -36,6 +36,12 @@ namespace SuperblocksProject
       }
     }
     
+    public void ApplyBonus(string name)
+    {
+      Bonus bonus = bonuses[name];
+      bonus.Apply(level);
+    }
+    
     public void RemoveBonus(string name)
     {
       level.Game.LevelScene.EntityManager.Remove(name);

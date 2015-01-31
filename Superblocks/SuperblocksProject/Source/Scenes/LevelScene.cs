@@ -24,7 +24,7 @@ namespace SuperblocksProject
     public LevelScene (Game game)
     {
       this.game = game;
-      this.pad = new Pad();
+      this.pad = new Pad(game);
       this.ui = new UI();
     }
 

@@ -42,6 +42,16 @@ namespace SuperblocksProject
       blocksManager.Init();
     }
     
+    public void AddBall()
+    {
+      ballsManager.AddBall();
+    }
+    
+    public void AddLive()
+    {
+      game.Player.IncrementLives();
+    }
+    
     public void Finish() {
       ballsManager.removeAllBalls();
     }

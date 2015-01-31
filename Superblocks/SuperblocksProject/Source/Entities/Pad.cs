@@ -18,11 +18,13 @@ namespace SuperblocksProject
 
     private int width, offset;
     private Entity entity;
+    private Game game;
 
-    public Pad ()
+    public Pad (Game game)
     {
       this.width = INITIAL_WIDTH;
       this.offset = WaveServices.Platform.ScreenWidth / 2;
+      this.game = game;
 
       this.entity = new Entity("pad")
         .AddComponent(new Transform2D() {
@@ -48,5 +50,6 @@ namespace SuperblocksProject
 
     public Entity Entity { get { return entity; } private set { entity = value; } }
     public int Width { get { return width; } private set { width = value; } }
+    public Game Game { get { return game; } }
   }
 }

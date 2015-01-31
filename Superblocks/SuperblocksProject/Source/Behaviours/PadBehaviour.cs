@@ -19,6 +19,8 @@ namespace SuperblocksProject
     private const int NONE = 0;
     private const int LEFT = -1;
     private const int RIGHT = 1;
+    
+    private Pad pad;
         
     private PadState currentState, lastState;
     private enum PadState { Pre, Idle, Left, Right };
@@ -29,6 +31,7 @@ namespace SuperblocksProject
     {
       this.currentState = PadState.Pre;
       this.impulse = INITIAL_SPEED;
+      this.pad = pad;
     }
         
     protected override void Update(TimeSpan gameTime)
@@ -73,6 +76,10 @@ namespace SuperblocksProject
       if (args.Body2DB.Owner.Name.StartsWith("Ball")) {
         BallCollider collider = new BallCollider(args.Body2DB);
         collider.AdjustX ();
+      }
+      else if (args.Body2DB.Owner.Name.StartsWith("Bonus")) {
+        RigidBody2D body = args.Body2DB;
+        pad.Game.CurrentLevel.BonusesManager.ApplyBonus(body.Owner.Name);
       }
     }
     
