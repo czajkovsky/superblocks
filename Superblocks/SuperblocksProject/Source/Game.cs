@@ -22,7 +22,7 @@ namespace SuperblocksProject
 
       ViewportManager vm = WaveServices.ViewportManager;
       vm.Activate (1280, 720, ViewportManager.StretchMode.Uniform);     
-      SetScene(new IntroScene(this));
+      SetScene(new UIScene(this, "intro"));
     }
     
     public void Start()

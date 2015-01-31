@@ -15,11 +15,11 @@ using WaveEngine.Framework.Physics2D;
 
 namespace SuperblocksProject
 {
-  public class IntroScene : Scene
+  public class UIScene : Scene
   {
     private Game game;
 
-    public IntroScene (Game game)
+    public UIScene (Game game, String texture)
     {
       this.game = game;
     }
@@ -27,13 +27,17 @@ namespace SuperblocksProject
     protected override void CreateScene()
     {
       EntityManager.Add(new FixedCamera2D("Camera2D"));
+      Entity background = new Entity("background")
+        .AddComponent(new Transform2D() { Y = 10, DrawOrder = 1f })
+        .AddComponent(new SpriteRenderer(DefaultLayers.Alpha))
+        .AddComponent(new Sprite("textures/intro.wpk"));
+      EntityManager.Add(background);
       AddSceneBehavior(new UISceneBehaviour(), SceneBehavior.Order.PreUpdate);
     }
 
     protected override void Start ()
     {
       base.Start ();
-      
     }
     
     public Game Game { get { return game; } }

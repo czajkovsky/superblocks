@@ -120,6 +120,8 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Icon.icns" />
+    <BundleResource Include="Resources\textures\intro.wpk" />
+    <BundleResource Include="Resources\textures\gameover.wpk" />
     <BundleResource Include="Resources\textures\block_t1_l1.wpk" />
     <BundleResource Include="Resources\textures\block_t2_l1.wpk" />
     <BundleResource Include="Resources\textures\block_t2_l2.wpk" />

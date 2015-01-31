@@ -104,8 +104,8 @@
     <Compile Include="Source\Entities\ToggleBlock.cs" />
     <Compile Include="Source\UI.cs" />
     <Compile Include="Source\Scenes\LevelScene.cs" />
-    <Compile Include="Source\Scenes\IntroScene.cs" />
     <Compile Include="Source\Behaviours\UISceneBehaviour.cs" />
+    <Compile Include="Source\Scenes\UIScene.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources.weproj" />
