@@ -22,7 +22,7 @@ namespace SuperblocksProject
     public void CreateBonus(float x, float y)
     {
       System.Random random = new System.Random ();
-      if (random.Next(0, 10) > -1) {
+      if (random.Next(0, 10) > 6) {
         Bonus bonus;
         int rand = random.Next (0, 10);
         if (rand > 8)
