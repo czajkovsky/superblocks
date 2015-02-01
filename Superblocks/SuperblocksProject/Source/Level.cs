@@ -55,6 +55,7 @@ namespace SuperblocksProject
     
     public void Finish() {
       ballsManager.removeAllBalls();
+      bonusesManager.removeAllBonuses();
     }
 
     public int Id { get { return id; } }

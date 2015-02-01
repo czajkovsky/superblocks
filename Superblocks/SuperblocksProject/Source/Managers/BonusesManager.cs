@@ -50,6 +50,11 @@ namespace SuperblocksProject
       level.Game.LevelScene.EntityManager.Remove(name);
       bonuses.Remove(name);
     }
+    
+    public void removeAllBonuses() {
+      foreach (KeyValuePair<string, Bonus> bonus in bonuses)
+        level.Game.LevelScene.EntityManager.Remove (bonus.Key);
+    }
   }
 }
 
