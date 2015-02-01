@@ -41,12 +41,11 @@ namespace SuperblocksProject
     private Vector2 correlationXImpulse()
     {
       Vector2 impulse = Vector2.Zero;
-      float impulseY = correlationFactorX;
-      float impulseX = correlateValue(body.LinearVelocity.Y, body.LinearVelocity.X, correlationFactorX);
+      float impulseX = correlationFactorX;
+      float impulseY = correlateValue(body.LinearVelocity.Y, body.LinearVelocity.X, correlationFactorX);
       
       impulse += Vector2.UnitX * impulseX;
       impulse += Vector2.UnitY * impulseY;
-      Console.WriteLine (impulse);
       return impulse;
     }
     
