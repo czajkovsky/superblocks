@@ -38,6 +38,8 @@ namespace SuperblocksProject
     
     public void ApplyBonus(string name)
     {
+      if (!bonuses.ContainsKey (name))
+        return;
       Bonus bonus = bonuses[name];
       bonus.Apply(level);
       RemoveBonus(name);
@@ -45,10 +47,8 @@ namespace SuperblocksProject
     
     public void RemoveBonus(string name)
     {
-      if (bonuses.ContainsKey (name)) {
-        level.Game.LevelScene.EntityManager.Remove (name);
-        bonuses.Remove (name);
-      }
+      level.Game.LevelScene.EntityManager.Remove(name);
+      bonuses.Remove(name);
     }
   }
 }
